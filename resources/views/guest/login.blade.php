@@ -17,12 +17,12 @@ Login
             </div>
             <form class="form-auth-small" action="#">
               <div class="form-group">
-                <label for="signin-email" class="control-label sr-only">Agent ID</label>
-                <input type="text" class="form-control" id="signin-email" placeholder="Agent ID">
+                <label for="email" class="control-label sr-only">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
               </div>
               <div class="form-group">
-                <label for="signin-password" class="control-label sr-only">Password</label>
-                <input type="password" class="form-control" id="signin-password" placeholder="Password">
+                <label for="password" class="control-label sr-only">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
               </div>
               <div class="form-group clearfix">
                 <label class="fancy-checkbox element-left">
@@ -32,7 +32,8 @@ Login
               </div>
               <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
               <div class="bottom">
-                <span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span>
+                <span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span><br>
+                <span class="helper-text"><i class="fa fa-user"></i> <a href="{{URL::route('register')}}">Create User</a></span>
               </div>
             </form>
           </div>

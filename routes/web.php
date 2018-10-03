@@ -17,7 +17,7 @@ Route::group(['middleware' => ['auth']], function(){
 
 //Guest Routes
 Route::group(array('middleware' => 'web'), function(){
-   //Route::get('register', array('uses' => 'GuestController@getRegister', 'as' => 'register'));
+   Route::get('register', array('uses' => 'GuestController@getRegister', 'as' => 'register'));
    Route::get('login', array('uses' => 'GuestController@getLogin', 'as' => 'login'));
     Route::group(array('before' => 'csrf'), function(){
        //Route::post('register', array('uses' => 'GuestController@postRegister', 'as' => 'postRegister'));
