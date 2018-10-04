@@ -14,15 +14,26 @@ Login
             <div class="header">
               <div class="logo text-center"><img src="{{URL::asset('img/logo-dark.png')}}" alt="Klorofil Logo"></div>
               <p class="lead">Login to your account</p>
+              @if (Session::has('success'))
+				          <span class="help-block text-primary"> {{ Session::get('success') }}</span>
+              @elseif (Session::has('fail'))
+				          <span class="help-block text-danger"> {{ Session::get('fail') }}</span>
+              @endif
             </div>
-            <form class="form-auth-small" action="#">
+            <form class="form-auth-small" action="{{route('postLogin')}}" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="email" class="control-label sr-only">Email</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                @if($errors->has('email'))
+				            <span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{$errors->first('email')}}</span>
+                @endif
               </div>
               <div class="form-group">
                 <label for="password" class="control-label sr-only">Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                @if($errors->has('password'))
+				            <span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{$errors->first('password')}}</span>
+				        @endif
               </div>
               <div class="form-group clearfix">
                 <label class="fancy-checkbox element-left">
@@ -30,10 +41,11 @@ Login
                   <span>Remember me</span>
                 </label>
               </div>
+              {{csrf_field()}}
               <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
               <div class="bottom">
                 <span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span><br>
-                <span class="helper-text"><i class="fa fa-user"></i> <a href="{{URL::route('register')}}">Create User</a></span>
+                <a href="{{URL::route('register')}}" class="btn btn-danger btn-lg btn-block">Create User</a></span>
               </div>
             </form>
           </div>

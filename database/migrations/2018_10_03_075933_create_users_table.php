@@ -22,9 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('password_question');
-            $table->string('password_answer');
-            $table->string('token');
+            $table->string('password_question')->nullable();
+            $table->string('password_answer')->nullable();
+            $table->string('token')->nullable();
             $table->timestamp('token_sent')->nullable();
             $table->timestamp('token_expire')->nullable();
             $table->unsignedInteger('is_approved');
