@@ -15,8 +15,8 @@ use App\User;
 use App\Customer;
 use App\Order;
 use App\OrderHistory;
-use App\OrderStatus;
 
+use App\OrderStatus;
 class CustomerController extends Controller
 {
     //

@@ -70,7 +70,7 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="#" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="{{URL::route('dashboard')}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
                 <li>
                   <a href="#subPage" data-toggle="collapse" class="collapsed"><i class="lnr lnr-user"></i> <span>Customers</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
                   <div id="subPage" class="collapse ">
@@ -83,8 +83,9 @@
                     <a href="#subPage1" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Orders</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                     <div id="subPage1" class="collapse ">
                         <ul class="nav">
-                            <li><a href="#" class="">All Orders</a></li>
-                            <li><a href="#" class="">Sales</a></li>
+                            <li><a href="{{URL::route('allOrders')}}" class="">All Orders</a></li>
+                            <li><a href="#" class="">Find an Order</a></li>
+                            <li><a href="{{URL::route('sales')}}" class="">Sales</a></li>
                         </ul>
                     </div>
                 </li>

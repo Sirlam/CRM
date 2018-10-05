@@ -1,0 +1,56 @@
+@extends('layout.front.master')
+@section('title')
+Sales
+@endsection
+
+@section('body')
+<!--MAIN-->
+<div class="main">
+		<!-- MAIN CONTENT -->
+		<div class="main-content">
+			<div class="container-fluid">
+				<h3 class="page-title">All Sales</h3>
+				<div class="row">
+					<div class="col-md-12">
+						<!-- BORDERED TABLE -->
+						<div class="panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">Sales</h3>
+							</div>
+							<div class="panel-body">
+								<table class="table table-bordered table-striped" id="myTable">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Quantity</th>
+											<th>Total</th>
+                      <th>Status</th>
+										</tr>
+									</thead>
+									<tbody>
+                    @foreach($sales as $sale)
+										<tr>
+											<td><a href="{{url('order/'.$sale->order_id)}}">{{$sale->name}}</a></td>
+											<td>{{$sale->quantity}}</td>
+											<td>{{$sale->total}}</td>
+                      <td>{{$sale->STATUS}}</td>
+										</tr>
+                    @endforeach
+                    <tr>
+                      <td>Total</td>
+                      <td>{{$sales->sum('quantity')}}</td>
+                      <td>{{$sales->sum('total')}}</td>
+                      <td></td>
+                    </tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- END BORDERED TABLE -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MAIN CONTENT -->
+	</div>
+@stop

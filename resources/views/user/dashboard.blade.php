@@ -31,7 +31,7 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-shopping-bag"></i></span>
                                 <p>
-                                    <span class="number">203</span>
+                                    <span class="number">{{$pending->sum('quantity')}}</span>
                                     <span class="title">Pending Orders</span>
                                 </p>
                             </div>
@@ -40,7 +40,7 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-money"></i></span>
                                 <p>
-                                    <span class="number">274,678</span>
+                                    <span class="number">{{$sales->sum('quantity')}}</span>
                                     <span class="title">Sales</span>
                                 </p>
                             </div>
@@ -49,13 +49,74 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-check"></i></span>
                                 <p>
-                                    <span class="number">35%</span>
+                                    <span class="number">{{$orders->count()}}</span>
                                     <span class="title">Total Orders</span>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <!-- END ROW -->
+                    <!--ROW-->
+                    <div class="row">
+          						<div class="col-md-6">
+          							<!-- RECENT PURCHASES -->
+          							<div class="panel">
+          								<div class="panel-heading">
+          									<h3 class="panel-title">Pending Orders</h3>
+          									<div class="right">
+          										<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+          										<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+          									</div>
+          								</div>
+          								<div class="panel-body no-padding">
+          									<table class="table table-striped" id="myTable">
+          										<thead>
+          											<tr>
+          												<th>Name</th>
+                                  <th>Quantity</td>
+          												<th>Amount</th>
+          												<th>Status</th>
+          											</tr>
+          										</thead>
+          										<tbody>
+                                @foreach($pending as $pend)
+            										<tr>
+            											<td><a href="{{url('order/'.$pend->order_id)}}">{{$pend->name}}</a></td>
+            											<td>{{$pend->quantity}}</td>
+            											<td>{{$pend->total}}</td>
+                                  <td>{{$pend->STATUS}}</td>
+            										</tr>
+                                @endforeach
+          										</tbody>
+          									</table>
+          								</div>
+          								<div class="panel-footer">
+          									<div class="row">
+          										<div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> Recent</span></div>
+          										<div class="col-md-6 text-right"><a href="{{URL::route('allOrders')}}" class="btn btn-primary">View All Orders</a></div>
+          									</div>
+          								</div>
+          							</div>
+          							<!-- END RECENT PURCHASES -->
+          						</div>
+          						<div class="col-md-6">
+          							<!-- MULTI CHARTS -->
+          							<div class="panel">
+          								<div class="panel-heading">
+          									<h3 class="panel-title">Sales Trend</h3>
+          									<div class="right">
+          										<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+          										<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+          									</div>
+          								</div>
+          								<div class="panel-body">
+          									<div id="visits-trends-chart" class="ct-chart"></div>
+          								</div>
+          							</div>
+          							<!-- END MULTI CHARTS -->
+          						</div>
+          					</div>
+                    <!--END ROW-->
                   </div>
                   <!-- END PANEL BODY -->
                 </div>

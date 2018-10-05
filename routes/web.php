@@ -20,7 +20,13 @@ Route::group(['middleware' => ['auth']], function(){
   Route::get('customer/{id}', array('uses' => 'CustomerController@customer', 'as' => 'customer'));
 
   //Order Routes
+  Route::get('allOrders', array('uses' => 'OrderController@allOrders', 'as' => 'allOrders'));
   Route::get('order/{id}', array('uses' => 'OrderController@order', 'as' => 'order'));
+  Route::get('sales', array('uses' => 'OrderController@sales', 'as' => 'sales'));
+
+  Route::group(array('before' => 'csrf'), function(){
+    Route::post('postOrder/{id}', array('uses' => 'OrderController@postOrder', 'as' => 'postOrder'));
+    });
 });
 
 //Guest Routes
