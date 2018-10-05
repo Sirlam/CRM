@@ -14,6 +14,13 @@
 Route::group(['middleware' => ['auth']], function(){
   Route::get('/', array('uses' => 'UserController@dashboard', 'as' => 'dashboard'));
   Route::get('logout', array('uses' => 'UserController@getLogout', 'as' => 'getLogout'));
+
+  //Customer Routes
+  Route::get('allCustomers', array('uses' => 'CustomerController@allCustomers', 'as' => 'allCustomers'));
+  Route::get('customer/{id}', array('uses' => 'CustomerController@customer', 'as' => 'customer'));
+
+  //Order Routes
+  Route::get('order/{id}', array('uses' => 'OrderController@order', 'as' => 'order'));
 });
 
 //Guest Routes

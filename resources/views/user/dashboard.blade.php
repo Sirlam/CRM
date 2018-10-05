@@ -22,7 +22,7 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-users"></i></span>
                                 <p>
-                                    <span class="number">1,252</span>
+                                    <span class="number">{{$customer_count}}</span>
                                     <span class="title">Total Customers</span>
                                 </p>
                             </div>
@@ -47,10 +47,10 @@ Dashboard
                         </div>
                         <div class="col-md-3">
                             <div class="metric">
-                                <span class="icon"><i class="fa fa-times"></i></span>
+                                <span class="icon"><i class="fa fa-check"></i></span>
                                 <p>
                                     <span class="number">35%</span>
-                                    <span class="title">Cancelled Orders</span>
+                                    <span class="title">Total Orders</span>
                                 </p>
                             </div>
                         </div>

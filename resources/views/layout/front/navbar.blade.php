@@ -19,7 +19,7 @@
             <a class="btn btn-success update-pro" href="#" title="Upgrade to Pro" target="_blank">
               <i class="fa fa-rocket"></i>
               @foreach($locations as $location)
-                @if(Auth::user()->location_id == $location->id)
+                @if(Auth::user()->location_id == $location->pickup_id)
                   <span>{{$location->name}}</span>
                 @endif
               @endforeach
@@ -75,7 +75,7 @@
                   <a href="#subPage" data-toggle="collapse" class="collapsed"><i class="lnr lnr-user"></i> <span>Customers</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
                   <div id="subPage" class="collapse ">
                       <ul class="nav">
-                          <li><a href="#" class="">All Customers</a></li>
+                          <li><a href="{{URL::route('allCustomers')}}" class="">All Customers</a></li>
                       </ul>
                   </div>
                 </li>
@@ -84,8 +84,6 @@
                     <div id="subPage1" class="collapse ">
                         <ul class="nav">
                             <li><a href="#" class="">All Orders</a></li>
-                            <li><a href="#" class="">Pending Orders</a></li>
-                            <li><a href="#" class="">Cancelled Orders</a></li>
                             <li><a href="#" class="">Sales</a></li>
                         </ul>
                     </div>

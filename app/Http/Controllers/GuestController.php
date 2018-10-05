@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Location;
 use App\Role;
 use App\User;
+use App\Pickup;
 use Carbon\Carbon;
 
 class GuestController extends Controller
@@ -25,7 +26,7 @@ class GuestController extends Controller
   }
 
   public function getRegister(){
-    $locations = Location::all();
+    $locations = Pickup::all();
     $roles = Role::all();
     return view('guest.register')->with('locations', $locations)->with('roles', $roles);
   }

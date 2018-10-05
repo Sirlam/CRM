@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="{{URL::asset('vendor/font-awesome/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" href="{{URL::asset('vendor/linearicons/style.css')}}">
 	<link rel="stylesheet" href="{{URL::asset('vendor/chartist/css/chartist-custom.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('vendor/data-tables/css/jquery.dataTables.css')}}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{URL::asset('css/main.css')}}">
 	<!-- GOOGLE FONTS -->

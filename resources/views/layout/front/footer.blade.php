@@ -13,4 +13,15 @@
 <script src="{{URL::asset('vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 <script src="{{URL::asset('vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
 <script src="{{URL::asset('vendor/chartist/js/chartist.min.js')}}"></script>
+<script src="{{URL::asset('vendor/data-tables/js/jquery.dataTables.js')}}"></script>
 <script src="{{URL::asset('js/klorofil-common.js')}}"></script>
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#myTable').DataTable({
+      "language": {
+            "decimal": ",",
+            "thousands": "."
+        }
+    });
+} );
+</script>
