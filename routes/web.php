@@ -23,9 +23,11 @@ Route::group(['middleware' => ['auth']], function(){
   Route::get('allOrders', array('uses' => 'OrderController@allOrders', 'as' => 'allOrders'));
   Route::get('order/{id}', array('uses' => 'OrderController@order', 'as' => 'order'));
   Route::get('sales', array('uses' => 'OrderController@sales', 'as' => 'sales'));
+  Route::get('imei/{id}', array('uses' => 'OrderController@imei', 'as' => 'imei'));
 
   Route::group(array('before' => 'csrf'), function(){
     Route::post('postOrder/{id}', array('uses' => 'OrderController@postOrder', 'as' => 'postOrder'));
+    Route::post('postImei/{id}', array('uses' => 'OrderController@postImei', 'as' => 'postImei'));
     });
 });
 

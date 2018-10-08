@@ -18,10 +18,13 @@ Orders
 								<h3 class="panel-title">Order</h3>
 							</div>
 							<div class="panel-body">
-								<table class="table table-bordered table-striped" id="myTable">
+								<table class="table table-bordered table-striped" id="special" cellspacing="0" width="100%">
 									<thead>
 										<tr>
-											<th>Name</th>
+											<th>Order ID</th>
+											<th>Product</th>
+											<th>Customer Name</th>
+											<th>Phone</th>
 											<th>Quantity</th>
 											<th>Total</th>
                       <th>Status</th>
@@ -30,13 +33,22 @@ Orders
 									<tbody>
                     @foreach($order_details as $order_detail)
 										<tr>
+											<td>{{$order_detail->order_id}}</td>
 											<td><a href="{{url('order/'.$order_detail->order_id)}}">{{$order_detail->name}}</a></td>
+											<td><a href="{{url('customer/'.$order_detail->customer_id)}}">{{$order_detail->firstname}}  {{$order_detail->lastname}}</td>
+											<td>{{$order_detail->telephone}}</td>
 											<td>{{$order_detail->quantity}}</td>
-											<td>{{$order_detail->total}}</td>
+											<td>N{{$order_detail->total}}</td>
                       <td>{{$order_detail->STATUS}}</td>
 										</tr>
                     @endforeach
 									</tbody>
+									<tfoot>
+				            <tr>
+				                <th>Order ID</th>
+				                <th>Name</th>
+				            </tr>
+				        </tfoot>
 								</table>
 							</div>
 						</div>

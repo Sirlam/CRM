@@ -83,8 +83,7 @@
                     <a href="#subPage1" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Orders</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                     <div id="subPage1" class="collapse ">
                         <ul class="nav">
-                            <li><a href="{{URL::route('allOrders')}}" class="">All Orders</a></li>
-                            <li><a href="#" class="">Find an Order</a></li>
+                            <li><a href="{{URL::route('allOrders')}}" class="">Find an Order</a></li>
                             <li><a href="{{URL::route('sales')}}" class="">Sales</a></li>
                         </ul>
                     </div>

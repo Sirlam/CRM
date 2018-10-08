@@ -41,7 +41,7 @@ class CustomerController extends Controller
     public function customer($id){
       $customer = Customer::find($id);
       $user = Auth::user();
-      $orders = Order::where('customer_id', $id);
+      $orders = Order::where('customer_id', $id)->distinct()->get();;
       $pending = DB::table('oc_order')->join('oc_order_history', 'oc_order.order_id', '=', 'oc_order_history.order_id')
                         ->join('oc_order_status', 'oc_order_status.order_status_id', '=', 'oc_order_history.order_status_id')
                         ->select(DB::raw('count(1) as STATUS'))

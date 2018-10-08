@@ -14,6 +14,7 @@ class CreatePermissionsTable extends Migration
     public function up()
     {
         Schema::create('oc_agent_permissions', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('permission_description')->nullable();
             $table->string('route_url')->nullable();

@@ -1,6 +1,6 @@
 @extends('layout.front.master')
 @section('title')
-{{$order_details->name}}
+IMEI - {{$order_details->name}}
 @endsection
 
 @section('body')
@@ -9,13 +9,13 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">Order</h3>
+					<h3 class="page-title">IMEI</h3>
 					<div class="row">
 						<div class="col-md-12">
 							<!-- BUTTONS -->
 							<div class="panel">
 								<div class="panel-heading">
-									<h3 class="panel-title">Order</h3>
+									<h3 class="panel-title">IMEI</h3>
 								</div>
 								<div class="panel-body">
 									@if (Session::has('success'))
@@ -23,8 +23,8 @@
 		              @elseif (Session::has('fail'))
 						          <span class="help-block text-danger"> {{ Session::get('fail') }}</span>
 		              @endif
-									@if($errors->has('token'))
-											<span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{$errors->first('token')}}</span>
+									@if($errors->has('imei'))
+											<span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{$errors->first('imei')}}</span>
 									@endif
                   <div class="table-responsive">
   									<table class="table project-table">
@@ -46,9 +46,9 @@
   										</tbody>
   									</table>
                     @if($order_details->STATUS == 'Processing' || $order_details->STATUS == 'Pending')
-										<form class="form-horizontal" method="post" action="{{url('postOrder/' . $order_details->order_id)}}">
+										<form class="form-horizontal" method="post" action="{{url('postImei/' . $order_details->order_id)}}">
 	                    <div class="input-group">
-	                      <input type="text" id="token" name="token" class="form-control" placeholder="Enter item token...">
+	                      <input type="text" id="imei" name="imei" class="form-control" placeholder="Enter item IMEI number...">
 												{{csrf_field()}}
 	                      <span class="input-group-btn"><button type="submit" class="btn btn-primary"><i class="fa fa-arrow-right"></i></button></span>
 	                    </div>

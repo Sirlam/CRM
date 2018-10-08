@@ -14,6 +14,7 @@ class CreateRolesTable extends Migration
     public function up()
     {
         Schema::create('oc_agent_roles', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('role_name');
             $table->unsignedInteger('user_level')->nullable();

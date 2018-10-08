@@ -64,10 +64,10 @@ Register
                 <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Phone No">
               </div>
               <div class="form-group">
-                <label for="role_id" class="control-label sr-only">Role</label>
+                <label for="role_id" class="control-label sr-only">Location</label>
                 <select class="form-control" name="location_id" id="location_id">
 			             @foreach($locations as $item)
-  			              <option value="{{$item->id}}">{{$item->name}}</option>
+  			              <option value="{{$item->pickup_id}}">{{$item->name}}</option>
                    @endforeach
                  </select>
               </div>

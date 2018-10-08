@@ -27,9 +27,10 @@ class OrderController extends Controller
       $orders = Order::all();
       $user = Auth::user();
       $order_details = DB::table('oc_order')->join('oc_order_history', 'oc_order.order_id', '=', 'oc_order_history.order_id')
+                        ->join('oc_customer', 'oc_order.customer_id', '=', 'oc_customer.customer_id')
                         ->join('oc_order_status', 'oc_order_status.order_status_id', '=', 'oc_order_history.order_status_id')
                         ->join('oc_order_product', 'oc_order.order_id', '=', 'oc_order_product.order_id')
-                        ->select('oc_order.order_id', 'oc_order.token', 'oc_order_product.name', 'oc_order_product.quantity', 'oc_order_product.total', 'oc_order_status.name as STATUS')
+                        ->select('oc_order.order_id', 'oc_customer.customer_id', 'oc_customer.firstname', 'oc_customer.lastname', 'oc_customer.telephone', 'oc_order.token', 'oc_order_product.name', 'oc_order_product.quantity', 'oc_order_product.total', 'oc_order_status.name as STATUS')
                         ->where('oc_order_status.language_id', 1)->orderBy('oc_order_status.name', 'asc')
                         ->get();
       $locations = Pickup::all();
@@ -122,14 +123,65 @@ class OrderController extends Controller
           }
         }else {
           // code...
+          return Redirect::route('imei', $order_details->order_id)
+          ->with('order', $order)
+          ->with('order_details', $order_details)
+          ->with('user', $user)
+          ->with('locations', $locations)
+          ->with('roles', $roles)
+          ->with('success', 'Order Validated, Enter IMEI');
+        }
+      }
+    }
+
+    public function imei($id){
+      $order = Order::find($id);
+      $user = Auth::user();
+      $order_details = DB::table('oc_order')->join('oc_order_history', 'oc_order.order_id', '=', 'oc_order_history.order_id')
+                        ->join('oc_order_status', 'oc_order_status.order_status_id', '=', 'oc_order_history.order_status_id')
+                        ->join('oc_order_product', 'oc_order.order_id', '=', 'oc_order_product.order_id')
+                        ->select('oc_order.order_id', 'oc_order.token', 'oc_order_product.name', 'oc_order_product.quantity', 'oc_order_product.total', 'oc_order_status.name as STATUS')
+                        ->where('oc_order.order_id', $id)->where('oc_order_status.language_id', 1)
+                        ->first();
+      $locations = Pickup::all();
+      $roles = Role::all();
+      return view('order.imei')
+              ->with('order', $order)
+              ->with('order_details', $order_details)
+              ->with('user', $user)
+              ->with('locations', $locations)
+              ->with('roles', $roles);
+    }
+
+    public function postImei($id){
+      $order = Order::find($id);
+      $user = Auth::user();
+      $order_details = DB::table('oc_order')->join('oc_order_history', 'oc_order.order_id', '=', 'oc_order_history.order_id')
+                        ->join('oc_order_status', 'oc_order_status.order_status_id', '=', 'oc_order_history.order_status_id')
+                        ->join('oc_order_product', 'oc_order.order_id', '=', 'oc_order_product.order_id')
+                        ->select('oc_order.order_id', 'oc_order.token', 'oc_order_product.name', 'oc_order_product.quantity', 'oc_order_product.total', 'oc_order_status.name as STATUS')
+                        ->where('oc_order.order_id', $id)->where('oc_order_status.language_id', 1)
+                        ->first();
+      $order_history = OrderHistory::where('order_id', $id)->first();
+      $locations = Pickup::all();
+      $roles = Role::all();
+
+      $validate = Validator::make(Input::all(), array(
+        'imei' => 'required',
+      ));
+
+      if($validate->fails()){
           return Redirect::back()
           ->with('order', $order)
           ->with('order_details', $order_details)
           ->with('user', $user)
           ->with('locations', $locations)
           ->with('roles', $roles)
-          ->with('fail', 'Invalid token');
-        }
+          ->with('fail', 'IMEI number required')
+          ->withInput();
+      }else {
+        // code...
+        return Redirect::route('dashboard');
       }
     }
 }

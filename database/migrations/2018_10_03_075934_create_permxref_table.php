@@ -14,13 +14,14 @@ class CreatePermxrefTable extends Migration
     public function up()
     {
         Schema::create('oc_agent_role_perm', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->unsignedInteger('role_id');
-            $table->foreign('role_id')->references('id')->on('oc_agent_roles')
-                  ->onDelete('cascade')->onUpdate('cascade');
+            //$table->foreign('role_id')->references('id')->on('oc_agent_roles')
+            //      ->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedInteger('permission_id');
-            $table->foreign('permission_id')->references('id')->on('oc_agent_permissions')
-                  ->onDelete('cascade')->onUpdate('cascade');
+            //$table->foreign('permission_id')->references('id')->on('oc_agent_permissions')
+            //      ->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

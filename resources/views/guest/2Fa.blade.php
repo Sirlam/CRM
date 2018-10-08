@@ -23,7 +23,7 @@ Login
 					<form action="{{route('post2Fa')}}" method="post" enctype="multipart/form-data">
 						<div class="input-group">
               <input type="hidden" class="form-control" id="email" name="email" value="{{ Session::get('user') }}">
-							<input type="password" class="form-control" placeholder="Enter your token ..." id="token" name="token">
+							<input type="password" class="form-control" placeholder="Enter your login token ..." id="token" name="token">
               @if($errors->has('token'))
                   <span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{$errors->first('token')}}</span>
               @endif
