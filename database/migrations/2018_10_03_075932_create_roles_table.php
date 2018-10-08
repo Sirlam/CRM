@@ -18,7 +18,7 @@ class CreateRolesTable extends Migration
             $table->string('role_name');
             $table->unsignedInteger('user_level')->nullable();
             $table->unsignedInteger('created_by')->nullable();
-            $table->string('last_modified_by')->nullable();
+            $table->unsignedInteger('last_modified_by')->nullable();
             $table->unsignedInteger('parent_id')->nullable();
             $table->timestamps();
         });
