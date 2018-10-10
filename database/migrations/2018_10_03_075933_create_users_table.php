@@ -34,11 +34,11 @@ class CreateUsersTable extends Migration
             $table->timestamp('last_login_date')->nullable();
             $table->timestamp('last_password_changed')->nullable();
             $table->unsignedInteger('role_id');
-            //$table->foreign('role_id')->references('id')->on('oc_agent_roles')
-            //      ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('role_id')->references('id')->on('oc_agent_roles')
+                  ->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedInteger('location_id');
-            //$table->foreign('location_id')->references('pickup_id')->on('oc_pickup')
-            //      ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('location_id')->references('id')->on('oc_agent_locations')
+                  ->onDelete('cascade')->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
