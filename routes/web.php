@@ -30,6 +30,11 @@ Route::group(['middleware' => ['auth']], function(){
   Route::get('addUser', array('uses' => 'UserController@addUser', 'as' => 'addUser'));
   Route::get('editUser/{id}', array('uses' => 'UserController@editUser', 'as' => 'editUser'));
 
+  //Role Management Routes
+  Route::get('allRoles', array('uses' => 'RoleController@allRoles', 'as' => 'allRoles'));
+  Route::get('addRole', array('uses' => 'RoleController@addRole', 'as' => 'addRole'));
+  Route::get('editRole/{id}', array('uses' => 'RoleController@editRole', 'as' => 'editRole'));
+
   Route::group(array('before' => 'csrf'), function(){
     //Post Order
     Route::post('postOrder/{id}', array('uses' => 'OrderController@postOrder', 'as' => 'postOrder'));
@@ -37,6 +42,9 @@ Route::group(['middleware' => ['auth']], function(){
     //Post User
     Route::post('postUser', array('uses' => 'UserController@postUser', 'as' => 'postUser'));
     Route::post('postEditUser/{id}', array('uses' => 'UserController@postEditUser', 'as' => 'postEditUser'));
+    //Post Role
+    Route::post('postRole', array('uses' => 'RoleController@postRole', 'as' => 'postRole'));
+    Route::post('postEditRole/{id}', array('uses' => 'RoleController@postEditRole', 'as' => 'postEditRole'));
     });
 
 });
