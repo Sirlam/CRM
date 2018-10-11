@@ -22,7 +22,7 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-users"></i></span>
                                 <p>
-                                    <span class="number">{{$customer_count}}</span>
+                                    <span class="number"><!---->0</span>
                                     <span class="title">Total Customers</span>
                                 </p>
                             </div>
@@ -31,7 +31,7 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-shopping-bag"></i></span>
                                 <p>
-                                    <span class="number">{{$pending->sum('quantity')}}</span>
+                                    <span class="number">0</span>
                                     <span class="title">Pending Orders</span>
                                 </p>
                             </div>
@@ -40,7 +40,7 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-money"></i></span>
                                 <p>
-                                    <span class="number">{{$sales->sum('quantity')}}</span>
+                                    <span class="number">0</span>
                                     <span class="title">Sales</span>
                                 </p>
                             </div>
@@ -49,7 +49,7 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-check"></i></span>
                                 <p>
-                                    <span class="number">{{$orders->count()}}</span>
+                                    <span class="number">0</span>
                                     <span class="title">Total Orders</span>
                                 </p>
                             </div>
@@ -79,14 +79,9 @@ Dashboard
           											</tr>
           										</thead>
           										<tbody>
-                                @foreach($pending as $pend)
-            										<tr>
-            											<td><a href="{{url('order/'.$pend->order_id)}}">{{$pend->name}}</a></td>
-            											<td>{{$pend->quantity}}</td>
-            											<td>{{$pend->total}}</td>
-                                  <td>{{$pend->STATUS}}</td>
-            										</tr>
-                                @endforeach
+                                <!--
+                                
+                              -->
           										</tbody>
           									</table>
           								</div>

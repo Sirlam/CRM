@@ -13,10 +13,13 @@ class CreateLocationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('oc_agent_locations', function (Blueprint $table) {
+        Schema::create('oc_pickup', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->increments('pickup_id');
+            $table->unsignedInteger('zone_id')->nullable();
             $table->string('name');
+            $table->string('code')->nullable();
+            $table->unsignedInteger('status')->nullable();
             $table->timestamps();
         });
     }

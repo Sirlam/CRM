@@ -25,10 +25,20 @@ Route::group(['middleware' => ['auth']], function(){
   Route::get('sales', array('uses' => 'OrderController@sales', 'as' => 'sales'));
   Route::get('imei/{id}', array('uses' => 'OrderController@imei', 'as' => 'imei'));
 
+  //User Management Routes
+  Route::get('allUsers', array('uses' => 'UserController@allUsers', 'as' => 'allUsers'));
+  Route::get('addUser', array('uses' => 'UserController@addUser', 'as' => 'addUser'));
+  Route::get('editUser/{id}', array('uses' => 'UserController@editUser', 'as' => 'editUser'));
+
   Route::group(array('before' => 'csrf'), function(){
+    //Post Order
     Route::post('postOrder/{id}', array('uses' => 'OrderController@postOrder', 'as' => 'postOrder'));
     Route::post('postImei/{id}', array('uses' => 'OrderController@postImei', 'as' => 'postImei'));
+    //Post User
+    Route::post('postUser', array('uses' => 'UserController@postUser', 'as' => 'postUser'));
+    Route::post('postEditUser/{id}', array('uses' => 'UserController@postEditUser', 'as' => 'postEditUser'));
     });
+
 });
 
 //Guest Routes

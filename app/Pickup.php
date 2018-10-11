@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Pickup extends Model
 {
     //
-    protected $table = 'oc_agent_locations';
+    protected $table = 'oc_pickup';
 
-    public $primaryKey = 'id';
+    public $primaryKey = 'pickup_id';
 
     protected $fillable = [
-        'name',
+        'zone_id', 'name', 'code', 'status'
     ];
 
     /**

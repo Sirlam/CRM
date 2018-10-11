@@ -26,7 +26,7 @@ class GuestController extends Controller
   }
 
   public function getRegister(){
-    $locations = Pickup::all();
+    $locations = Pickup::where('status', 1)->get();
     $roles = Role::all();
     return view('guest.register')->with('locations', $locations)->with('roles', $roles);
   }

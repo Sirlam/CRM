@@ -95,7 +95,7 @@
                   <a href="#subPage3" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>Configuration</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
                   <div id="subPage3" class="collapse ">
                       <ul class="nav">
-                          <li><a href="#" class="">Manage Users</a></li>
+                          <li><a href="{{URL::route('allUsers')}}" class="">Manage Users</a></li>
                           <li><a href="#" class="">Manage Roles</a></li>
                           <li><a href="#" class="">Manage Permissions</a></li>
                       </ul>

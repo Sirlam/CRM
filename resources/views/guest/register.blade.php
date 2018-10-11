@@ -44,6 +44,7 @@ Register
                 @if($errors->has('password'))
 				            <span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{$errors->first('password')}}</span>
                 @endif
+                <input type="checkbox"  onclick="showPassword();"> Show Password
               </div>
               <div class="form-group">
                 <label for="first_name" class="control-label sr-only">First Name</label>
@@ -92,4 +93,17 @@ Register
   </div>
 </div>
 <!-- END WRAPPER -->
+
+<script type="text/javascript">
+function showPassword(){
+  var x = document.getElementById("password");
+  if(x.type === "password"){
+    x.type = "text";
+  }else {
+    {
+      x.type = "password";
+    }
+  }
+}
+</script>
 @stop
