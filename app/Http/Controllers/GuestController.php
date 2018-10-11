@@ -12,10 +12,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
-use App\Location;
 use App\Role;
 use App\User;
-use App\Pickup;
+use App\Classes\Pickup;
 use Carbon\Carbon;
 
 class GuestController extends Controller
@@ -26,7 +25,8 @@ class GuestController extends Controller
   }
 
   public function getRegister(){
-    $locations = Pickup::where('status', 1)->get();
+    $locations = Pickup::getPickups()->content;
+    //dd($locations->content);
     $roles = Role::all();
     return view('guest.register')->with('locations', $locations)->with('roles', $roles);
   }

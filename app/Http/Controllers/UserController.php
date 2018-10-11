@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
-use App\Location;
-use App\Pickup;
+use App\Classes\Pickup;
 use App\Role;
 use App\User;
 use App\Customer;
@@ -22,7 +21,7 @@ class UserController extends Controller
 {
     //Get the home page
     public function dashboard(){
-      $locations = Pickup::where('status', 1)->get();
+      $locations = Pickup::getPickups()->content;
       $roles = Role::all();
       /*$orders = Order::all();
       //$customer_count = Customer::count();
