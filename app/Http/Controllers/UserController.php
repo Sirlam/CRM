@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Redirect;
 use App\Classes\Pickup;
 use App\Role;
 use App\User;
+use App\Sold;
 use App\Classes\Customer;
-use App\Order;
+use App\Classes\Order;
+use App\Classes\OrderStatus;
 
 class UserController extends Controller
 {
@@ -24,28 +26,16 @@ class UserController extends Controller
       $locations = Pickup::getPickups()->content;
       $customers = Customer::getCustomers(Auth::user()->location_id)->content;
       $roles = Role::all();
-      /*
-      $orders = Order::all();
-      $pending = DB::table('oc_order')->join('oc_order_history', 'oc_order.order_id', '=', 'oc_order_history.order_id')
-                        ->join('oc_order_status', 'oc_order_status.order_status_id', '=', 'oc_order_history.order_status_id')
-                        ->join('oc_order_product', 'oc_order.order_id', '=', 'oc_order_product.order_id')
-                        ->select('oc_order.order_id', 'oc_order.token', 'oc_order_product.name', 'oc_order_product.quantity', 'oc_order_product.total', 'oc_order_status.name as STATUS')
-                        ->whereIn('oc_order_status.order_status_id', [1,2])->where('oc_order_status.language_id', 1)
-                        ->get();
-      $sales = DB::table('oc_order')->join('oc_order_history', 'oc_order.order_id', '=', 'oc_order_history.order_id')
-                        ->join('oc_order_status', 'oc_order_status.order_status_id', '=', 'oc_order_history.order_status_id')
-                        ->join('oc_order_product', 'oc_order.order_id', '=', 'oc_order_product.order_id')
-                        ->select('oc_order.order_id', 'oc_order.token', 'oc_order_product.name', 'oc_order_product.quantity', 'oc_order_product.total', 'oc_order_status.name as STATUS')
-                        ->whereIn('oc_order_status.order_status_id', [5])->where('oc_order_status.language_id', 1)
-                        ->get();*/
+      $orders = Order::getOrdersByPickupId(Auth::user()->location_id)->content;
+      $pending = Order::getPendingOrdersByPickupId(Auth::user()->location_id)->content;
+      $sales = Sold::where('pickup_id', Auth::user()->location_id)->get();
       return view('user.dashboard')
               ->with('locations', $locations)
               ->with('roles', $roles)
-              ->with('customers', $customers);
-              /*
+              ->with('customers', $customers)
               ->with('pending', $pending)
               ->with('orders', $orders)
-              */
+              ->with('sales', $sales);
     }
 
     //Logout User

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Classes\Pickup;
 use App\Role;
 use App\User;
+use App\Sold;
 use App\Classes\Customer;
 use App\Classes\Order;
 use App\Classes\OrderStatus;
@@ -34,17 +35,10 @@ class OrderController extends Controller
     }
 
     public function sales(){
-      $orders = Order::all();
-      $sales = DB::table('oc_order')->join('oc_order_history', 'oc_order.order_id', '=', 'oc_order_history.order_id')
-                        ->join('oc_order_status', 'oc_order_status.order_status_id', '=', 'oc_order_history.order_status_id')
-                        ->join('oc_order_product', 'oc_order.order_id', '=', 'oc_order_product.order_id')
-                        ->select('oc_order.order_id', 'oc_order.token', 'oc_order_product.name', 'oc_order_product.quantity', 'oc_order_product.total', 'oc_order_status.name as STATUS')
-                        ->whereIn('oc_order_status.order_status_id', [5])->where('oc_order_status.language_id', 1)
-                        ->get();
+      $sales = Sold::where('pickup_id', Auth::user()->location_id)->get();
       $locations = Pickup::getPickups()->content;
       $roles = Role::all();
       return view('order.sales')
-              ->with('order', $orders)
               ->with('locations', $locations)
               ->with('sales', $sales)
               ->with('roles', $roles);
@@ -139,11 +133,41 @@ class OrderController extends Controller
           ->withInput();
       }else {
           // code...
-          return Redirect::route('allOrders')
-          ->with('order_details', $order_details)
-          ->with('locations', $locations)
-          ->with('order_status', $order_status)
-          ->with('roles', $roles);
+          $sold = new Sold();
+          $sold->order_id = $order->order_id;
+          $sold->customer_id = $order->customer_id;
+          $sold->imei_number = Input::get('imei');
+          $sold->firstname = $order->firstname;
+          $sold->lastname = $order->lastname;
+          $sold->telephone = $order->telephone;
+          $sold->email = $order->email;
+          $sold->currency_id = $order->currency_id;
+          $sold->currency_code = $order->currency_code;
+          $sold->total = $order->total;
+          $sold->name = $order->name;
+          $sold->quantity = $order->quantity;
+          $sold->pickup_id = $order->pick_up;
+
+          if($sold->save()){
+            return Redirect::route('allOrders')
+            ->with('order_details', $order_details)
+            ->with('locations', $locations)
+            ->with('order_status', $order_status)
+            ->with('roles', $roles)
+            ->with('success', 'Sold Succesfully');
+          }else {
+            // code...
+            return Redirect::back()
+            ->with('order', $order)
+            ->with('order_details', $order_details)
+            ->with('order_status', $order_status)
+            ->with('locations', $locations)
+            ->with('roles', $roles)
+            ->with('fail', 'This item is already sold!')
+            ->withInput();
+          }
+
+
       }
     }
 }

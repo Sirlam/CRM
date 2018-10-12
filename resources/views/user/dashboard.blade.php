@@ -31,7 +31,7 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-shopping-bag"></i></span>
                                 <p>
-                                    <span class="number">0</span>
+                                    <span class="number">{{count($pending)}}</span>
                                     <span class="title">Pending Orders</span>
                                 </p>
                             </div>
@@ -40,7 +40,7 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-money"></i></span>
                                 <p>
-                                    <span class="number">0</span>
+                                    <span class="number">{{$sales->count()}}</span>
                                     <span class="title">Sales</span>
                                 </p>
                             </div>
@@ -49,7 +49,7 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-check"></i></span>
                                 <p>
-                                    <span class="number">0</span>
+                                    <span class="number">{{count($orders)}}</span>
                                     <span class="title">Total Orders</span>
                                 </p>
                             </div>
@@ -75,13 +75,16 @@ Dashboard
           												<th>Name</th>
                                   <th>Quantity</td>
           												<th>Amount</th>
-          												<th>Status</th>
           											</tr>
           										</thead>
           										<tbody>
-                                <!--
-
-                              -->
+                                @foreach($pending as $pend)
+                                <tr>
+                                  <td>{{$pend->name}}</td>
+                                  <td>{{$pend->quantity}}</td>
+                                  <td>{{$pend->total}}</td>
+                                </tr>
+                                @endforeach
           										</tbody>
           									</table>
           								</div>

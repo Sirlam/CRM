@@ -16,6 +16,11 @@ Orders
 						<div class="panel">
 							<div class="panel-heading">
 								<h3 class="panel-title">Order</h3>
+								@if (Session::has('success'))
+										<span class="help-block text-success"> {{ Session::get('success') }}</span>
+								@elseif (Session::has('fail'))
+										<span class="help-block text-danger"> {{ Session::get('fail') }}</span>
+								@endif
 							</div>
 							<div class="panel-body">
 								<table class="table table-bordered table-striped" id="special" cellspacing="0" width="100%">

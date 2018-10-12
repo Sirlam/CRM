@@ -51,4 +51,19 @@ class Order
     return ($decode);
   }
 
+  public static function getPendingOrdersByPickupId($pickup_id){
+    $client = Service::init();
+
+    $res = $client->request('GET', 'pending_orders',
+      [
+        'query' =>
+          [
+            'location_id' => "$pickup_id"
+          ]
+      ]
+    );
+    $decode = json_decode($res->getBody());
+    return ($decode);
+  }
+
 }

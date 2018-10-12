@@ -21,26 +21,47 @@ Sales
 								<table class="table table-bordered table-striped" id="myTable">
 									<thead>
 										<tr>
+											<th>Order ID</td>
+											<th>Date Sold</th>
+											<th>Customer</th>
+											<th>Phone</th>
+											<th>Email</th>
 											<th>Name</th>
 											<th>Quantity</th>
-											<th>Total</th>
-                      <th>Status</th>
+											<th>Amount</th>
+											<th>Location</th>
 										</tr>
 									</thead>
 									<tbody>
                     @foreach($sales as $sale)
 										<tr>
-											<td><a href="{{url('order/'.$sale->order_id)}}">{{$sale->name}}</a></td>
+											<td>{{$sale->order_id}}</td>
+											<td>{{$sale->created_at}}</td>
+											<td>{{$sale->firstname}} {{$sale->lastname}}</td>
+											<td>{{$sale->telephone}}</td>
+											<td>{{$sale->email}}</td>
+											<td>{{$sale->name}}</td>
 											<td>{{$sale->quantity}}</td>
 											<td>{{$sale->total}}</td>
-                      <td>{{$sale->STATUS}}</td>
+											<td>
+												@foreach($locations as $location)
+													@if($sale->pickup_id == $location->pickup_id)
+														{{$location->name}}
+													@endif
+												@endforeach
+											</td>
 										</tr>
                     @endforeach
                     <tr>
                       <td>Total</td>
-                      <td>{{$sales->sum('quantity')}}</td>
-                      <td>{{$sales->sum('total')}}</td>
                       <td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>{{$sales->sum('quantity')}}</td>
+                      <td>{{$sales->sum('total')}}</td>
+											<td></td>
                     </tr>
 									</tbody>
 								</table>
