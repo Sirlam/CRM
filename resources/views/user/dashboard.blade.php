@@ -22,7 +22,7 @@ Dashboard
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-users"></i></span>
                                 <p>
-                                    <span class="number"><!---->0</span>
+                                    <span class="number">{{count($customers)}}</span>
                                     <span class="title">Total Customers</span>
                                 </p>
                             </div>
@@ -80,7 +80,7 @@ Dashboard
           										</thead>
           										<tbody>
                                 <!--
-                                
+
                               -->
           										</tbody>
           									</table>

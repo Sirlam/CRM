@@ -30,22 +30,58 @@ IMEI - {{$order_details->name}}
   									<table class="table project-table">
   										<thead>
   											<tr>
-  												<th>Product</th>
-  												<th>Quantity</th>
-  												<th>Total</th>
-  												<th>Status</th>
+  												<th>Field</th>
+  												<th>Value</th>
   											</tr>
   										</thead>
   										<tbody>
-  											<tr>
-  												<td>{{$order_details->name}}</a></td>
-  												<td>{{$order_details->quantity}}</td>
-  												<td>{{$order_details->total}}</td>
-  												<td><span class="label label-success">{{$order_details->STATUS}}</span></td>
-  											</tr>
+												<tbody>
+													<tr>
+														<td>Order ID:</td>
+														<td>{{$order_details->order_id}}</a></td>
+													</tr>
+													<tr>
+														<td>Product:</td>
+														<td>{{$order_details->name}}</a></td>
+													</tr>
+													<tr>
+														<td>Name:</td>
+														<td>{{$order_details->firstname}} {{$order_details->lastname}}</a></td>
+													</tr>
+													<tr>
+														<td>Phone:</td>
+														<td>{{$order_details->telephone}}</a></td>
+													</tr>
+													<tr>
+														<td>Currency:</td>
+														<td>{{$order_details->currency_code}}</a></td>
+													</tr>
+													<tr>
+														<td>Quantity</td>
+														<td>{{$order_details->quantity}}</td>
+													</tr>
+													<tr>
+														<td>Total</td>
+														<td>{{$order_details->total}}</td>
+													</tr>
+													<tr>
+														<td>Date Ordered</td>
+														<td>{{$order_details->date_added}}</td>
+													</tr>
+	  											<tr>
+														<td>Status</td>
+	  												<td>
+															@foreach($order_status as $status)
+																@if($status->order_status_id == $order_details->order_status_id)
+																	<span class="label label-success">{{$status->name}}</span>
+																@endif
+															@endforeach
+														</td>
+	  											</tr>
+	  										</tbody>
   										</tbody>
   									</table>
-                    @if($order_details->STATUS == 'Processing' || $order_details->STATUS == 'Pending')
+                    @if($order_details->order_status_id == 2 || $order_details->order_status_id == 1)
 										<form class="form-horizontal" method="post" action="{{url('postImei/' . $order_details->order_id)}}">
 	                    <div class="input-group">
 	                      <input type="text" id="imei" name="imei" class="form-control" placeholder="Enter item IMEI number...">
@@ -54,7 +90,7 @@ IMEI - {{$order_details->name}}
 	                    </div>
 										</form>
                     @else
-                      <p>This order is <span class="label label-danger">{{$order_details->STATUS}}</span></p>
+                      <p>This order is <span class="label label-danger">{{$order_details->order_status_id}}</span></p>
                     @endif
   								</div>
 								</div>

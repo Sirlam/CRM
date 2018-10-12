@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Classes\Pickup;
 use App\Role;
 use App\User;
-use App\Customer;
+use App\Classes\Customer;
 use App\Order;
 
 class UserController extends Controller
@@ -22,9 +22,10 @@ class UserController extends Controller
     //Get the home page
     public function dashboard(){
       $locations = Pickup::getPickups()->content;
+      $customers = Customer::getCustomers(Auth::user()->location_id)->content;
       $roles = Role::all();
-      /*$orders = Order::all();
-      //$customer_count = Customer::count();
+      /*
+      $orders = Order::all();
       $pending = DB::table('oc_order')->join('oc_order_history', 'oc_order.order_id', '=', 'oc_order_history.order_id')
                         ->join('oc_order_status', 'oc_order_status.order_status_id', '=', 'oc_order_history.order_status_id')
                         ->join('oc_order_product', 'oc_order.order_id', '=', 'oc_order_product.order_id')
@@ -39,11 +40,12 @@ class UserController extends Controller
                         ->get();*/
       return view('user.dashboard')
               ->with('locations', $locations)
-              ->with('roles', $roles);
-              /*->with('customer_count', $customer_count)
+              ->with('roles', $roles)
+              ->with('customers', $customers);
+              /*
               ->with('pending', $pending)
               ->with('orders', $orders)
-              ->with('sales', $sales);*/
+              */
     }
 
     //Logout User
@@ -55,7 +57,7 @@ class UserController extends Controller
 
     public function allUsers(){
       $users = User::all();
-      $locations = Pickup::all();
+      $locations = Pickup::getPickups()->content;
       $roles = Role::all();
 
       return view('user.allUsers')
@@ -65,7 +67,7 @@ class UserController extends Controller
     }
 
     public function addUser(){
-      $locations = Pickup::where('status', 1)->get();
+      $locations = Pickup::getPickups()->content;
       $roles = Role::all();
       return view('user.addUser')
             ->with('locations', $locations)
@@ -73,7 +75,7 @@ class UserController extends Controller
     }
 
     public function postUser(Request $request){
-      $locations = Pickup::where('status', 1)->get();
+      $locations = Pickup::getPickups()->content;
       $roles = Role::all();
       $users = User::all();
 
@@ -121,7 +123,7 @@ class UserController extends Controller
     }
 
     public function editUser($id){
-      $locations = Pickup::where('status', 1)->get();
+      $locations = Pickup::getPickups()->content;
       $roles = Role::all();
       $user = User::find($id);
 
@@ -131,7 +133,7 @@ class UserController extends Controller
     }
 
     public function postEditUser($id){
-      $locations = Pickup::where('status', 1)->get();
+      $locations = Pickup::getPickups()->content;
       $roles = Role::all();
       $user = User::find($id);
       $users = User::all();

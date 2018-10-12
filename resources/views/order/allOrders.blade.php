@@ -27,6 +27,7 @@ Orders
 											<th>Phone</th>
 											<th>Quantity</th>
 											<th>Total</th>
+											<th>Order Date</th>
                       <th>Status</th>
 										</tr>
 									</thead>
@@ -38,8 +39,15 @@ Orders
 											<td><a href="{{url('customer/'.$order_detail->customer_id)}}">{{$order_detail->firstname}}  {{$order_detail->lastname}}</td>
 											<td>{{$order_detail->telephone}}</td>
 											<td>{{$order_detail->quantity}}</td>
-											<td>N{{$order_detail->total}}</td>
-                      <td>{{$order_detail->STATUS}}</td>
+											<td>{{$order_detail->currency_code}} {{$order_detail->total}}</td>
+											<td>{{$order_detail->date_added}}</td>
+                      <td>
+												@foreach($order_status as $status)
+													@if($status->order_status_id == $order_detail->order_status_id)
+														<span class="label label-success">{{$status->name}}</span>
+													@endif
+												@endforeach
+											</td>
 										</tr>
                     @endforeach
 									</tbody>

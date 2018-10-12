@@ -24,10 +24,10 @@
 							<div class="profile-stat">
 								<div class="row">
 									<div class="col-md-6 stat-item">
-										{{$orders->count()}} <span>Total Orders</span>
+										{{count($orders)}} <span>Total Orders</span>
 									</div>
 									<div class="col-md-6 stat-item">
-										15 <span>Pending Orders</span>
+										- <span>Pending Orders</span>
                   </div>
 								</div>
 							</div>
@@ -53,16 +53,17 @@
 						<!-- TABBED CONTENT -->
 						<div class="custom-tabs-line tabs-line-bottom left-aligned">
 							<ul class="nav" role="tablist">
-                <li class="active"><a href="#tab-bottom-left2" role="tab" data-toggle="tab">Orders <span class="badge">{{$orders->count()}}</span></a></li>
-								<li><a href="#tab-bottom-left1" role="tab" data-toggle="tab">Recent Activity</a></li>
+                <li class="active"><a href="#tab-bottom-left2" role="tab" data-toggle="tab">Order History <span class="badge">{{count($orders)}}</span></a></li>
+								<!--<li><a href="#tab-bottom-left1" role="tab" data-toggle="tab">Recent Activity</a></li>-->
 							</ul>
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane fade in active" id="tab-bottom-left2">
 								<div class="table-responsive">
-									<table class="table project-table">
+									<table class="table project-table" id="myTable">
 										<thead>
 											<tr>
+												<th>Order ID</th>
 												<th>Product</th>
 												<th>Quantity</th>
 												<th>Total</th>
@@ -70,18 +71,26 @@
 											</tr>
 										</thead>
 										<tbody>
-                      @foreach($order_summary as $order_summ)
+											@foreach($orders as $order)
 											<tr>
-												<td><a href="{{url('order/'.$order_summ->order_id)}}">{{$order_summ->name}}</a></td>
-												<td>{{$order_summ->quantity}}</td>
-												<td>{{$order_summ->total}}</td>
-												<td><span class="label label-success">{{$order_summ->STATUS}}</span></td>
+												<td><a href="{{url('order/'.$order->order_id)}}">{{$order->order_id}}</td>
+												<td><a href="{{url('order/'.$order->order_id)}}">{{$order->name}}</a></td>
+												<td>{{$order->quantity}}</td>
+												<td>{{$order->currency_code}} {{$order->total}}</td>
+												<td>
+												@foreach($order_status as $status)
+													@if($status->order_status_id == $order->order_status_id)
+														<span class="label label-success">{{$status->name}}</span>
+													@endif
+												@endforeach
+											</td>
 											</tr>
-                      @endforeach
+											@endforeach
 										</tbody>
 									</table>
 								</div>
 							</div>
+							<!--
               <div class="tab-pane fade" id="tab-bottom-left1">
 								<ul class="list-unstyled activity-timeline">
 									<li>
@@ -102,7 +111,7 @@
 									</li>
 								</ul>
 								<div class="margin-top-30 text-center"><a href="#" class="btn btn-default">See all activity</a></div>
-							</div>
+							</div>-->
 						</div>
 						<!-- END TABBED CONTENT -->
 					</div>
