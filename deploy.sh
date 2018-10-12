@@ -128,7 +128,7 @@ fi
 # 5. Install Composer modules 
 if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
   cd "$DEPLOYMENT_TARGET"
-  eval composer install
+  eval php composer install
   exitWithMessageOnError "composer failed"
   cd - > /dev/null
 fi
