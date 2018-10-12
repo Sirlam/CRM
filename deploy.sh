@@ -130,7 +130,7 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   echo "Downloading Composer"
   curl -sS https://getcomposer.org/installer | php
-  eval php $DEPLOYMENT_TARGET/composer.phar install
+  eval php composer.phar install
   exitWithMessageOnError "composer failed"
   cd - > /dev/null
 fi
