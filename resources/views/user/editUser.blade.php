@@ -102,7 +102,7 @@ Edit User
                               <div class="form-group">
                                 {{csrf_field()}}
                                 <div class="col-sm-10 col-sm-offset-2">
-                                  <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> UPDATE</button>
+                                  <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> UPDATE</button>
                                 </div>
                               </div>
                             </form>

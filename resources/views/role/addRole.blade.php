@@ -62,7 +62,7 @@ Add Role
                               <div class="form-group">
                                 {{csrf_field()}}
                                 <div class="col-sm-10 col-sm-offset-2">
-                                  <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> SAVE</button>
+                                  <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> SAVE</button>
                                 </div>
                               </div>
                             </form>

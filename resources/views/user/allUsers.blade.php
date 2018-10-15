@@ -18,7 +18,7 @@ User Management
                     @elseif (Session::has('fail'))
       				          <span class="help-block text-danger"> {{ Session::get('fail') }}</span>
                     @endif
-                    <p class="panel-subtitle pull-right"><a href="{{route('addUser')}}" class="btn btn-primary"><i class="fa fa-plus-square"></i> Add New</a></p>
+                    <p class="panel-subtitle pull-right"><a href="{{route('addUser')}}" class="btn btn-success"><i class="fa fa-plus-square"></i> Add New</a></p>
                 </div>
                 <div class="panel-body">
                     <!--ROW-->
