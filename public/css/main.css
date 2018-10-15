@@ -367,10 +367,10 @@ ul.notifications > li {
       color: #fff;
       background-color: transparent; }
       .sidebar .nav > li > a:hover i, .sidebar .nav > li > a:focus i, .sidebar .nav > li > a.active i {
-        color: #00AAFF; }
+        color: #228B22; }
     .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
       background-color: #252c35;
-      border-left-color: #00AAFF; }
+      border-left-color: #228B22; }
     .sidebar .nav > li > a[data-toggle="collapse"] .icon-submenu {
       display: inline-block;
       vertical-align: middle;
@@ -398,7 +398,7 @@ ul.notifications > li {
       transform: rotate(0deg); }
     .sidebar .nav > li > a .badge {
       font-weight: 400;
-      background-color: #F9354C; }
+      background-color: #228B22; }
   .sidebar .nav {
     /* submenu */ }
     .sidebar .nav i {
@@ -722,7 +722,7 @@ fieldset[disabled] .btn {
     width: 50px;
     height: 50px;
     line-height: 50px;
-    background-color: #0081c2;
+    background-color: #228B22;
     text-align: center; }
     .metric .icon i {
       font-size: 18px;
@@ -1050,7 +1050,7 @@ ul.activity-list > li {
       display: block;
       width: 100%;
       height: 100%;
-      background: rgba(99, 156, 185, 0.92); }
+      background: rgba(34, 139, 34, 0.92); }
   .auth-box .header {
     margin-bottom: 30px; }
   .auth-box .lead {
@@ -1204,7 +1204,7 @@ ul.activity-list > li {
       background-color: #41B314; }
   .profile-header .profile-stat {
     position: relative;
-    background-color: #00AAFF; }
+    background-color: #228B22; }
     .profile-header .profile-stat .stat-item {
       padding: 20px;
       position: relative; }
@@ -1216,7 +1216,7 @@ ul.activity-list > li {
         right: 0;
         width: 1px;
         height: 100%;
-        background-color: #33bbff; }
+        background-color: #ffffff; }
       .profile-header .profile-stat .stat-item:last-child:after {
         display: none; }
     .profile-header .profile-stat .stat-item span {

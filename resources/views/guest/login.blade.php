@@ -15,7 +15,7 @@ Login
               <div class="logo text-center"><img src="{{URL::asset('img/logo-dark.png')}}" alt="Klorofil Logo"></div>
               <p class="lead">Login to your account</p>
               @if (Session::has('success'))
-				          <span class="help-block text-primary"> {{ Session::get('success') }}</span>
+				          <span class="help-block text-success"> {{ Session::get('success') }}</span>
               @elseif (Session::has('fail'))
 				          <span class="help-block text-danger"> {{ Session::get('fail') }}</span>
               @endif
@@ -42,7 +42,7 @@ Login
                 </label>
               </div>
               {{csrf_field()}}
-              <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+              <button type="submit" class="btn btn-success btn-lg btn-block">LOGIN</button>
               <div class="bottom">
                 <span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span><br>
                 <!--<a href="{{URL::route('register')}}" class="btn btn-danger btn-lg btn-block">Create User</a></span>-->
@@ -53,7 +53,7 @@ Login
         <div class="right">
           <div class="overlay"></div>
           <div class="content text">
-            <h1 class="heading">CRM Administration Portal for Order Management</h1>
+            <h1 class="heading">Wepay Portal for Order Management</h1>
             <p>by Bluechip Technologies Ltd</p>
           </div>
         </div>

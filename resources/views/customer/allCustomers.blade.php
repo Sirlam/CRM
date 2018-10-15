@@ -33,7 +33,7 @@ Customers
 									<tbody>
                     @foreach($customers as $customer)
 										<tr>
-											<td><a href="{{url('customer/'.$customer->customer_id)}}" class="btn btn-primary">View</a></td>
+											<td><a href="{{url('customer/'.$customer->customer_id)}}" class="btn btn-success">View</a></td>
 											<td>{{$customer->firstname}}</td>
 											<td>{{$customer->lastname}}</td>
 											<td>{{$customer->email}}</td>

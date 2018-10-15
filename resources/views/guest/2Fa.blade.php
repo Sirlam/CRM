@@ -28,7 +28,7 @@ Login
                   <span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{$errors->first('token')}}</span>
               @endif
               {{csrf_field()}}
-							<span class="input-group-btn"><button type="submit" class="btn btn-primary"><i class="fa fa-arrow-right"></i></button></span>
+							<span class="input-group-btn"><button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i></button></span>
 						</div>
 					</form>
 				</div>

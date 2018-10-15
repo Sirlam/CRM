@@ -19,7 +19,7 @@
 							<div class="profile-main">
 								<img src="{{URL::asset('img/user-medium.png')}}" class="img-circle" alt="Avatar">
 								<h3 class="name">{{$customer->firstname . ' ' . $customer->lastname}}</h3>
-								<span class="online-status status-available">Available</span>
+								<span class="online-status status-available">Active</span>
 							</div>
 							<div class="profile-stat">
 								<div class="row">

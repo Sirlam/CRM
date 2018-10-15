@@ -84,7 +84,7 @@
 	                    <div class="input-group">
 	                      <input type="text" id="token" name="token" class="form-control" placeholder="Enter item token...">
 												{{csrf_field()}}
-	                      <span class="input-group-btn"><button type="submit" class="btn btn-primary"><i class="fa fa-arrow-right"></i></button></span>
+	                      <span class="input-group-btn"><button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i></button></span>
 	                    </div>
 										</form>
                     @else

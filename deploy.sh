@@ -126,12 +126,12 @@ if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
 fi
 
 # 5. Install Composer modules 
-if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
-  cd "$DEPLOYMENT_TARGET"
-  eval php composer.phar install
-  exitWithMessageOnError "composer failed"
-  cd - > /dev/null
-fi
+#if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
+#  cd "$DEPLOYMENT_TARGET"
+#  eval php composer.phar install
+#  exitWithMessageOnError "composer failed"
+#  cd - > /dev/null
+#fi
 
 ##################################################################################################################################
 

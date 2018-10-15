@@ -3,7 +3,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-        <a href="#"><img src="{{URL::asset('img/logo-dark.png')}}" alt="CRM Logo" class="img-responsive logo"></a>
+        <a href="{{URL::route('dashboard')}}"><img src="{{URL::asset('img/logo-dark.png')}}" alt="CRM Logo" class="img-responsive logo"></a>
     </div>
     <div class="container-fluid">
         <div class="navbar-btn">
@@ -12,7 +12,7 @@
         <form class="navbar-form navbar-left">
             <div class="input-group">
                 <input type="text" value="" class="form-control" placeholder="Search dashboard...">
-                <span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
+                <span class="input-group-btn"><button type="button" class="btn btn-success">Go</button></span>
             </div>
         </form>
         <div class="navbar-btn navbar-btn-right">

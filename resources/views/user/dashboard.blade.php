@@ -91,7 +91,7 @@ Dashboard
           								<div class="panel-footer">
           									<div class="row">
           										<div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> Recent</span></div>
-          										<div class="col-md-6 text-right"><a href="{{URL::route('allOrders')}}" class="btn btn-primary">View All Orders</a></div>
+          										<div class="col-md-6 text-right"><a href="{{URL::route('allOrders')}}" class="btn btn-success">View All Orders</a></div>
           									</div>
           								</div>
           							</div>

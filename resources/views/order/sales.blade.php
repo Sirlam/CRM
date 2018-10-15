@@ -18,14 +18,15 @@ Sales
 								<h3 class="panel-title">Sales</h3>
 							</div>
 							<div class="panel-body">
-								<table class="table table-bordered table-striped" id="myTable">
+								<table class="table table-bordered table-striped table-responsive" id="myTable">
 									<thead>
 										<tr>
 											<th>Order ID</td>
+											<th>Customer ID</td>
 											<th>Date Sold</th>
 											<th>Customer</th>
 											<th>Phone</th>
-											<th>Email</th>
+											<!--<th>Email</th>-->
 											<th>Name</th>
 											<th>Quantity</th>
 											<th>Amount</th>
@@ -36,10 +37,11 @@ Sales
                     @foreach($sales as $sale)
 										<tr>
 											<td>{{$sale->order_id}}</td>
+											<td>{{$sale->customer_id}}</td>
 											<td>{{$sale->created_at}}</td>
 											<td>{{$sale->firstname}} {{$sale->lastname}}</td>
 											<td>{{$sale->telephone}}</td>
-											<td>{{$sale->email}}</td>
+											<!--<td>{{$sale->email}}</td>-->
 											<td>{{$sale->name}}</td>
 											<td>{{$sale->quantity}}</td>
 											<td>{{$sale->total}}</td>
@@ -57,6 +59,7 @@ Sales
                       <td></td>
 											<td></td>
 											<td></td>
+											<!--<td></td>-->
 											<td></td>
 											<td></td>
 											<td>{{$sales->sum('quantity')}}</td>
