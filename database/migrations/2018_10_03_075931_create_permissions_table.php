@@ -18,6 +18,7 @@ class CreatePermissionsTable extends Migration
             $table->increments('id');
             $table->string('permission_description')->nullable();
             $table->string('route_url')->nullable();
+            $table->unsignedInteger('parent_permission')->nullable();
             $table->unsignedInteger('is_active')->nullable();
             $table->string('id_tag')->nullable();
             $table->string('icon_class')->nullable();

@@ -35,6 +35,11 @@ Route::group(['middleware' => ['auth']], function(){
   Route::get('addRole', array('uses' => 'RoleController@addRole', 'as' => 'addRole'));
   Route::get('editRole/{id}', array('uses' => 'RoleController@editRole', 'as' => 'editRole'));
 
+  //Permission Management Routes
+  Route::get('allPermissions', array('uses' => 'PermissionController@allPermissions', 'as' => 'allPermissions'));
+  Route::get('addPermission', array('uses' => 'PermissionController@addPermission', 'as' => 'addPermission'));
+  Route::get('editPermission/{id}', array('uses' => 'PermissionController@editPermission', 'as' => 'editPermission'));
+
   Route::group(array('before' => 'csrf'), function(){
     //Post Order
     Route::post('postOrder/{id}', array('uses' => 'OrderController@postOrder', 'as' => 'postOrder'));
@@ -45,6 +50,8 @@ Route::group(['middleware' => ['auth']], function(){
     //Post Role
     Route::post('postRole', array('uses' => 'RoleController@postRole', 'as' => 'postRole'));
     Route::post('postEditRole/{id}', array('uses' => 'RoleController@postEditRole', 'as' => 'postEditRole'));
+    //Post Permission
+    Route::post('postPermission', array('uses' => 'PermissionController@postPermission', 'as' => 'postPermission'));
     });
 
 });

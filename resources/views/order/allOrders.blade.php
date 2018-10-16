@@ -23,7 +23,7 @@ Orders
 								@endif
 							</div>
 							<div class="panel-body">
-								<table class="table table-bordered table-striped" id="special" cellspacing="0" width="100%">
+								<table class="table table-bordered table-striped" id="myTable" cellspacing="0" width="100%">
 									<thead>
 										<tr>
 											<th>Order ID</th>
@@ -56,12 +56,12 @@ Orders
 										</tr>
                     @endforeach
 									</tbody>
-									<tfoot>
+									<!--<tfoot>
 				            <tr>
 				                <th>Order ID</th>
 				                <th>Name</th>
 				            </tr>
-				        </tfoot>
+				        </tfoot>-->
 								</table>
 							</div>
 						</div>
