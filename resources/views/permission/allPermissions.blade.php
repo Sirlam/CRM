@@ -50,7 +50,13 @@ Permission Management
                                 <tr>
                                   <td>{{$permission->permission_description}}</td>
                                   <td>{{$permission->route_url}}</td>
-                                  <td>{{$permission->is_active}}</td>
+                                  <td>
+                                    @if($permission->is_active > 0)
+                                      <i class="fa fa-check text-primary"></i>
+                                    @else
+                                      <i class="fa fa-close text-danger"></i>
+                                    @endif
+                                  </td>
                                   <td>{{$permission->id_tag}}</td>
                                   <td>{{$permission->parent_permission}}</td>
                                   <td><a href="#" class="btn btn-default">Edit</a></td>

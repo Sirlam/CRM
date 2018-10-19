@@ -68,16 +68,20 @@ class PermissionController extends Controller
         $permission->is_active = 1;
         if($permission->parent_permission == 0){
           //generate and store new id tag
-          $new_tag = uniqid("subPage");
+          //$new_tag = uniqid("subPage");
+          $permission->id_tag = "";
+        }else {
+          // code...Select the tag of the parent
+          $new_tag = Permission::select('route_url')->where('id', $request['parent_permission'])->get();
+          dd($new_tag[0]);
           $permission->id_tag = $new_tag;
-          //dd($new_tag);
         }
 
         $permission->icon_class = $request['icon_class'];
         $permission->is_open_class = $request['is_open_class'];
         $permission->toggle_icon = $request['toggle_icon'];
 
-        if($permission->save){
+        if($permission->save()){
           return Redirect::route('allPermissions')
                 ->with('permissions', $permissions)
                 ->with('locations', $locations)
