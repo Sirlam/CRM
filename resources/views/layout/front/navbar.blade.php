@@ -7,16 +7,17 @@
     </div>
     <div class="container-fluid">
         <div class="navbar-btn">
-            <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+            <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-menu"></i></button>
         </div>
+        <!--
         <form class="navbar-form navbar-left">
             <div class="input-group">
                 <input type="text" value="" class="form-control" placeholder="Search dashboard...">
                 <span class="input-group-btn"><button type="button" class="btn btn-success">Go</button></span>
             </div>
-        </form>
+        </form>-->
         <div class="navbar-btn navbar-btn-right">
-            <a class="btn btn-success update-pro" href="#" title="Upgrade to Pro" target="_blank">
+            <a class="btn btn-success update-pro" href="#" title="Location" target="_blank">
               <i class="fa fa-rocket"></i>
               @foreach($locations as $location)
                 @if(Auth::user()->location_id == $location->pickup_id)
@@ -27,6 +28,7 @@
         </div>
         <div id="navbar-menu">
             <ul class="nav navbar-nav navbar-right">
+              <!--
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
                         <i class="lnr lnr-alarm"></i>
@@ -41,7 +43,7 @@
                         <li><a href="#" class="more">See all notifications</a></li>
                     </ul>
                 </li>
-                <!--
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                     <ul class="dropdown-menu">
@@ -85,8 +87,8 @@
                     <a href="#subPage1" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Orders</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                     <div id="subPage1" class="collapse ">
                         <ul class="nav">
-                            <li><a href="{{URL::route('allOrders')}}" class="">Find an Order</a></li>
-                            <li><a href="{{URL::route('sales')}}" class="">Sales</a></li>
+                            <li><a href="{{URL::route('allOrders')}}" class="">Pending Orders</a></li>
+                            <li><a href="{{URL::route('sales')}}" class="">Redeemed Orders</a></li>
                         </ul>
                     </div>
                 </li>

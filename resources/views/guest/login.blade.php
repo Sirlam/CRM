@@ -53,8 +53,8 @@ Login
         <div class="right">
           <div class="overlay"></div>
           <div class="content text">
-            <h1 class="heading">Wepay Portal for Order Management</h1>
-            <p>by Bluechip Technologies Ltd</p>
+            <h1 class="heading">Customer Relationship Manager</h1>
+            <!--<p>by Bluechip Technologies Ltd</p>-->
           </div>
         </div>
         <div class="clearfix"></div>

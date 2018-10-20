@@ -12,12 +12,12 @@ Dashboard
         <div class="container-fluid">
             <!-- OVERVIEW -->
             <div class="panel panel-headline">
-                <div class="panel-heading">
+                <!--<div class="panel-heading">
                     <h3 class="panel-title">Daily Overview</h3>
                     <p class="panel-subtitle">{{date('d-M-Y')}}</p>
-                </div>
+                </div>-->
                 <div class="panel-body">
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="col-md-3">
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-users"></i></span>
@@ -54,11 +54,11 @@ Dashboard
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- END ROW -->
                     <!--ROW-->
                     <div class="row">
-          						<div class="col-md-6">
+          						<div class="col-md-12">
           							<!-- RECENT PURCHASES -->
           							<div class="panel">
           								<div class="panel-heading">
@@ -97,8 +97,9 @@ Dashboard
           							</div>
           							<!-- END RECENT PURCHASES -->
           						</div>
+                      <!-- MULTI CHARTS -->
+                      <!--
           						<div class="col-md-6">
-          							<!-- MULTI CHARTS -->
           							<div class="panel">
           								<div class="panel-heading">
           									<h3 class="panel-title">Sales Trend</h3>
@@ -112,7 +113,7 @@ Dashboard
           								</div>
           							</div>
           							<!-- END MULTI CHARTS -->
-          						</div>
+          						</div>-->
           					</div>
                     <!--END ROW-->
                   </div>

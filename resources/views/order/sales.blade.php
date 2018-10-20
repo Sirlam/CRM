@@ -23,7 +23,7 @@ Sales
 										<tr>
 											<th>Order ID</td>
 											<th>Customer ID</td>
-											<th>Date Sold</th>
+											<th>Redeemed Date</th>
 											<th>Customer</th>
 											<th>Phone</th>
 											<!--<th>Email</th>-->
