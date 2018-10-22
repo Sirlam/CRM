@@ -9,13 +9,13 @@ Orders
 		<!-- MAIN CONTENT -->
 		<div class="main-content">
 			<div class="container-fluid">
-				<h3 class="page-title">All Orders</h3>
+				<h3 class="page-title">Pending Orders</h3>
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-6">
 						<!-- BORDERED TABLE -->
 						<div class="panel">
 							<div class="panel-heading">
-								<h3 class="panel-title">Order</h3>
+								<!--<h3 class="panel-title">Order</h3>-->
 								@if (Session::has('success'))
 										<span class="help-block text-success"> {{ Session::get('success') }}</span>
 								@elseif (Session::has('fail'))

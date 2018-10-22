@@ -11,7 +11,7 @@
 				<div class="container-fluid">
 					<h3 class="page-title">Order</h3>
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-6 col-md-offset-3">
 							<!-- BUTTONS -->
 							<div class="panel">
 								<div class="panel-heading">

@@ -11,7 +11,7 @@ IMEI - {{$order_details->name}}
 				<div class="container-fluid">
 					<h3 class="page-title">IMEI</h3>
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-6 col-md-offset-3">
 							<!-- BUTTONS -->
 							<div class="panel">
 								<div class="panel-heading">
@@ -86,7 +86,7 @@ IMEI - {{$order_details->name}}
 	                    <div class="input-group">
 	                      <input type="text" id="imei" name="imei" class="form-control" placeholder="Enter item IMEI number...">
 												{{csrf_field()}}
-	                      <span class="input-group-btn"><button type="submit" class="btn btn-primary"><i class="fa fa-arrow-right"></i></button></span>
+	                      <span class="input-group-btn"><button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i></button></span>
 	                    </div>
 										</form>
                     @else

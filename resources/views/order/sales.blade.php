@@ -9,13 +9,13 @@ Sales
 		<!-- MAIN CONTENT -->
 		<div class="main-content">
 			<div class="container-fluid">
-				<h3 class="page-title">All Sales</h3>
+				<h3 class="page-title">Redeemed Orders</h3>
 				<div class="row">
 					<div class="col-md-12">
 						<!-- BORDERED TABLE -->
 						<div class="panel">
 							<div class="panel-heading">
-								<h3 class="panel-title">Sales</h3>
+								<!--<h3 class="panel-title">Sales</h3>-->
 							</div>
 							<div class="panel-body">
 								<table class="table table-bordered table-striped table-responsive" id="myTable">

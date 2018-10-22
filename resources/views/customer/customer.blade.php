@@ -14,6 +14,11 @@
 					<!-- LEFT COLUMN -->
 					<div class="profile-left">
 						<!-- PROFILE HEADER -->
+						@if (Session::has('success'))
+								<span class="help-block text-success"> {{ Session::get('success') }}</span>
+						@elseif (Session::has('fail'))
+								<span class="help-block text-danger"> {{ Session::get('fail') }}</span>
+						@endif
 						<div class="profile-header">
 							<div class="overlay"></div>
 							<div class="profile-main">

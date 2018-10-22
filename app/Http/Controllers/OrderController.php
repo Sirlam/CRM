@@ -45,7 +45,13 @@ class OrderController extends Controller
     }
 
     public function order($id){
-      $order_details = Order::orderDetailsByOrderId($id)->content[0];
+      try{
+        $order_details = Order::orderDetailsByOrderId($id)->content[0];
+      }catch(\Exception $e){
+        return Redirect::back()
+        ->with('fail', 'Details for this order does not exist');
+      }
+
       $locations = Pickup::getPickups()->content;
       $roles = Role::all();
       $order_status = OrderStatus::statusByLanguageId(1)->content;
@@ -77,8 +83,9 @@ class OrderController extends Controller
           ->withInput();
       }else{
         $token = Input::get('token');
-        $auth = Hash::check($token, $order_details->token);
-        if(!$auth){
+        //$auth = Hash::check($token, $order_details->token);
+        $auth = $token === $order_details->token;
+        if($auth){
           //Enter Imei to save
           return Redirect::route('imei', $order_details->order_id)
           ->with('order_details', $order_details)

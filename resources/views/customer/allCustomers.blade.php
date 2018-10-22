@@ -15,7 +15,7 @@ Customers
 						<!-- BORDERED TABLE -->
 						<div class="panel">
 							<div class="panel-heading">
-								<h3 class="panel-title">Customer</h3>
+								<!--<h3 class="panel-title">Customer</h3>-->
 							</div>
 							<div class="panel-body">
 								<table class="table table-bordered table-striped" id="myTable">
