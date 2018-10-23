@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'SFCompactText-Bold';
+  src: url('SFCompactText-Bold.eot');
+  src: url('SFCompactText-Bold.woff2') format('woff2'),
+       url('SFCompactText-Bold.woff') format('woff'),
+       url('SFCompactText-Bold.ttf') format('truetype'),
+       url('SFCompactText-Bold.svg#SFCompactText-Bold') format('svg'),
+       url('SFCompactText-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

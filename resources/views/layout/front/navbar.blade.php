@@ -80,6 +80,7 @@
                   <div id="subPage" class="collapse ">
                       <ul class="nav">
                           <li><a href="{{URL::route('allCustomers')}}" class="">All Customers</a></li>
+                          <li><a href="#" class="">Redeem Lost Token</a></li>
                       </ul>
                   </div>
                 </li>
@@ -93,7 +94,13 @@
                     </div>
                 </li>
                 <li>
-                  <a href="#" class=""><i class="lnr lnr-dice"></i> <span>Reports & Analytics</span></a>
+                  <a href="#subPage2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-dice"></i> <span>Reports & Analytics</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                  <div id="subPage2" class="collapse ">
+                      <ul class="nav">
+                          <li><a href="#" class="">Pending Orders Report</a></li>
+                          <li><a href="#" class="">Redeemed Orders Report</a></li>
+                      </ul>
+                  </div>
                 </li>
                 <li>
                   <a href="#subPage3" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>Configuration</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
@@ -106,12 +113,7 @@
                   </div>
                 </li>
                 <li>
-                  <a href="#subPage4" data-toggle="collapse" class="collapsed" class=""><i class="lnr lnr-linearicons"></i> <span>Audit</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
-                  <div id="subPage4" class="collapse ">
-                      <ul class="nav">
-                          <li><a href="#" class="">Audit Log</a></li>
-                      </ul>
-                  </div>
+                  <a href="#" data-toggle="collapse" class="collapsed"><i class="lnr lnr-linearicons"></i> <span>Audit</span></a>
                 </li>
             </ul>
         </nav>

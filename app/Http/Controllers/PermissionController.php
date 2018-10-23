@@ -15,6 +15,7 @@ use App\Classes\Pickup;
 use App\Role;
 use App\User;
 use App\Sold;
+use App\PermissionXref;
 use App\Classes\Customer;
 use App\Classes\Order;
 use App\Classes\OrderStatus;
@@ -72,8 +73,8 @@ class PermissionController extends Controller
           $permission->id_tag = "";
         }else {
           // code...Select the tag of the parent
-          $new_tag = Permission::select('route_url')->where('id', $request['parent_permission'])->get();
-          dd($new_tag[0]);
+          $new_tag = Permission::select('route_url')->where('id', $request['parent_permission'])->first();
+          //dd($new_tag[0]);
           $permission->id_tag = $new_tag;
         }
 
@@ -96,6 +97,52 @@ class PermissionController extends Controller
                 ->with('success', 'An error occurred');
         }
       }
+    }
+
+    public function rolePerm($id){
+      $permission = Permission::where('id', $id)->first();
+      $locations = Pickup::getPickups()->content;
+      $roles = Role::all();
+      $permissionxref = PermissionXref::where('permission_id', $id)->get();
+
+      return view('permission.rolePerm')
+              ->with('permission', $permission)
+              ->with('permissionxref', $permissionxref)
+              ->with('locations', $locations)
+              ->with('roles', $roles);
+    }
+
+    public function postRolePerm($id){
+      $permission = Permission::where('id', $id)->first();
+      $locations = Pickup::getPickups()->content;
+      $roles = Role::all();
+      $permissions = Permission::all();
+      $selectedRoles = Input::get('role_id');
+      if($selectedRoles){
+        foreach($selectedRoles as $role){
+          $permissionxref = new PermissionXref();
+          $permissionxref->role_id = $role;
+          $permissionxref->permission_id = $id;
+          $permissionxref->save();
+        }
+      }
+
+      return Redirect::route('allPermissions')
+            ->with('permissions', $permissions)
+            ->with('locations', $locations)
+            ->with('roles', $roles)
+            ->with('success', 'Successful');
+
+
+    }
+
+    public function deleteRolePerm($id){
+      //$permission = Permission::where('id', $id)->first();
+      $locations = Pickup::getPickups()->content;
+      $roles = Role::all();
+      $permissions = Permission::all();
+
+
     }
 
 }

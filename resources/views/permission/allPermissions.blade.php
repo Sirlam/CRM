@@ -43,6 +43,7 @@ Permission Management
                                   <th>Tag</th>
                                   <th>Parent Permission</th>
                                   <th>Edit</th>
+                                  <th>Map</th>
           											</tr>
           										</thead>
           										<tbody>
@@ -60,6 +61,7 @@ Permission Management
                                   <td>{{$permission->id_tag}}</td>
                                   <td>{{$permission->parent_permission}}</td>
                                   <td><a href="#" class="btn btn-default">Edit</a></td>
+                                  <td><a href="{{url('rolePerm/' . $permission->id)}}" class="btn btn-default">Map Roles</a></td>
                                 </tr>
                                 @endforeach
           										</tbody>

@@ -39,6 +39,8 @@ Route::group(['middleware' => ['auth']], function(){
   Route::get('allPermissions', array('uses' => 'PermissionController@allPermissions', 'as' => 'allPermissions'));
   Route::get('addPermission', array('uses' => 'PermissionController@addPermission', 'as' => 'addPermission'));
   Route::get('editPermission/{id}', array('uses' => 'PermissionController@editPermission', 'as' => 'editPermission'));
+  Route::get('rolePerm/{id}', array('uses' => 'PermissionController@rolePerm', 'as' => 'rolePerm'));
+  Route::get('deleteRolePerm/{id}', array('uses' => 'PermissionController@deleteRolePerm', 'as' => 'deleteRolePerm'));
 
   Route::group(array('before' => 'csrf'), function(){
     //Post Order
@@ -52,6 +54,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('postEditRole/{id}', array('uses' => 'RoleController@postEditRole', 'as' => 'postEditRole'));
     //Post Permission
     Route::post('postPermission', array('uses' => 'PermissionController@postPermission', 'as' => 'postPermission'));
+    Route::post('postRolePerm/{id}', array('uses' => 'PermissionController@postRolePerm', 'as' => 'postRolePerm'));
     });
 
 });

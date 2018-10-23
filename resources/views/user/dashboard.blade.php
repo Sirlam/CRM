@@ -12,10 +12,10 @@ Dashboard
         <div class="container-fluid">
             <!-- OVERVIEW -->
             <div class="panel panel-headline">
-                <!--<div class="panel-heading">
-                    <h3 class="panel-title">Daily Overview</h3>
-                    <p class="panel-subtitle">{{date('d-M-Y')}}</p>
-                </div>-->
+                <div class="panel-heading">
+                    <h3 class="panel-title">Pending Orders</h3>
+                    <!--<p class="panel-subtitle">{{date('d-M-Y')}}</p>-->
+                </div>
                 <div class="panel-body">
                     <!--<div class="row">
                         <div class="col-md-3">
@@ -62,7 +62,7 @@ Dashboard
           							<!-- RECENT PURCHASES -->
           							<div class="panel">
           								<div class="panel-heading">
-          									<h3 class="panel-title">Pending Orders</h3>
+          									<!--<h3 class="panel-title">Pending Orders</h3>-->
           									<div class="right">
           										<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
           										<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
@@ -112,8 +112,8 @@ Dashboard
           									<div id="visits-trends-chart" class="ct-chart"></div>
           								</div>
           							</div>
-          							<!-- END MULTI CHARTS -->
-          						</div>-->
+          							<!END MULTI CHARTS -->
+          						</div>
           					</div>
                     <!--END ROW-->
                   </div>
@@ -125,5 +125,4 @@ Dashboard
   </div>
   <!-- END MAIN CONTENT -->
 </div>
-
 @stop

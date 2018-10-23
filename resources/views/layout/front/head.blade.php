@@ -13,6 +13,9 @@
 	<link rel="stylesheet" href="{{URL::asset('css/main.css')}}">
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- CUSTOM FONTS -->
+	<link rel="stylesheet" href="{{URL::asset('fonts/sf_compact_bold/font.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('fonts/sf_compact_regular/font.css')}}">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="{{URL::asset('img/apple-icon.png')}}">
 	<link rel="shortcut icon" type="image/x-icon"  href="{{URL::asset('img/favicon.png')}}">

@@ -53,7 +53,7 @@ Login
         <div class="right">
           <div class="overlay"></div>
           <div class="content text">
-            <h1 class="heading">Customer Relationship Manager</h1>
+            <h1 class="heading">Customer Relationship <br> Manager</h1>
             <!--<p>by Bluechip Technologies Ltd</p>-->
           </div>
         </div>

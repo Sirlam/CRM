@@ -20,15 +20,22 @@ Login
               @endif
             </h2>
 					</div>
+					@if (Session::has('fail'))
+							<span class="help-block text-danger"> {{ Session::get('fail') }}</span>
+					@endif
+					@if($errors->has('token'))
+							<span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{$errors->first('token')}}</span>
+					@endif
 					<form action="{{route('post2Fa')}}" method="post" enctype="multipart/form-data">
 						<div class="input-group">
-              <input type="hidden" class="form-control" id="email" name="email" value="{{ Session::get('user') }}">
-							<input type="password" class="form-control" placeholder="Enter your login token ..." id="token" name="token">
-              @if($errors->has('token'))
-                  <span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{$errors->first('token')}}</span>
-              @endif
-              {{csrf_field()}}
-							<span class="input-group-btn"><button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i></button></span>
+							@if(Session::get('user'))
+								<input type="hidden" class="form-control" id="email" name="email" value="{{ Session::get('user') }}">
+								<input type="password" class="form-control" placeholder="Enter your login token ..." id="token" name="token">
+	              {{csrf_field()}}
+								<span class="input-group-btn"><button type="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i></button></span>
+              @else
+								Kindly login first <a href="{{URL::route('login')}}">here</a>
+							@endif
 						</div>
 					</form>
 				</div>

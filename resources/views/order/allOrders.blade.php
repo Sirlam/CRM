@@ -11,7 +11,7 @@ Orders
 			<div class="container-fluid">
 				<h3 class="page-title">Pending Orders</h3>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<!-- BORDERED TABLE -->
 						<div class="panel">
 							<div class="panel-heading">
