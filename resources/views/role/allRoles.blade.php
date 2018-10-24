@@ -33,16 +33,16 @@ Role Management
           										<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
           									</div>-->
           								</div>
-          								<div class="panel-body no-padding">
+          								<div class="panel-body no-padding fg-scrollabletable">
           									<table class="table table-bordered table-striped" id="myTable">
           										<thead>
           											<tr>
-          												<th>Role Name</th>
-                                  <th>Authorization Level</th>
-          												<th>Created By</th>
-          												<th>Modified By</th>
-                                  <th>Created Date</th>
-                                  <th>Edit</th>
+          												<th class="col-sm-2">Role Name</th>
+                                  <th class="col-sm-3">Authorization Level</th>
+          												<th class="col-sm-2">Created By</th>
+          												<th class="col-sm-2">Modified By</th>
+                                  <th class="col-sm-2">Created Date</th>
+                                  <th class="col-sm-2">Edit</th>
           											</tr>
           										</thead>
           										<tbody>

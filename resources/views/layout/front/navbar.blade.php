@@ -97,8 +97,8 @@
                   <a href="#subPage2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-dice"></i> <span>Reports & Analytics</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                   <div id="subPage2" class="collapse ">
                       <ul class="nav">
-                          <li><a href="#" class="">Pending Orders Report</a></li>
-                          <li><a href="#" class="">Redeemed Orders Report</a></li>
+                          <li><a href="{{URL::route('pendingReport')}}" class="">Pending Orders Report</a></li>
+                          <li><a href="{{URL::route('redeemedReport')}}" class="">Redeemed Orders Report</a></li>
                       </ul>
                   </div>
                 </li>
@@ -113,7 +113,7 @@
                   </div>
                 </li>
                 <li>
-                  <a href="#" data-toggle="collapse" class="collapsed"><i class="lnr lnr-linearicons"></i> <span>Audit</span></a>
+                  <a href="{{URL::route('auditLog')}}"><i class="lnr lnr-linearicons"></i> <span>Audit Log</span></a>
                 </li>
             </ul>
         </nav>

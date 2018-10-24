@@ -42,6 +42,13 @@ Route::group(['middleware' => ['auth']], function(){
   Route::get('rolePerm/{id}', array('uses' => 'PermissionController@rolePerm', 'as' => 'rolePerm'));
   Route::get('deleteRolePerm/{id}', array('uses' => 'PermissionController@deleteRolePerm', 'as' => 'deleteRolePerm'));
 
+  //Report Routes
+  Route::get('pendingReport', array('uses' => 'ReportController@pendingReport', 'as' => 'pendingReport'));
+  Route::get('redeemedReport', array('uses' => 'ReportController@redeemedReport', 'as' => 'redeemedReport'));
+
+  //Audit Routes
+  Route::get('auditLog', array('uses' => 'AuditController@auditLog', 'as' => 'auditLog'));
+
   Route::group(array('before' => 'csrf'), function(){
     //Post Order
     Route::post('postOrder/{id}', array('uses' => 'OrderController@postOrder', 'as' => 'postOrder'));

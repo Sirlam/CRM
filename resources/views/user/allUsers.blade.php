@@ -33,7 +33,7 @@ User Management
           										<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
           									</div>-->
           								</div>
-          								<div class="panel-body no-padding">
+          								<div class="panel-body no-padding fg-scrollabletable">
           									<table class="table table-bordered table-striped" id="myTable">
           										<thead>
           											<tr>

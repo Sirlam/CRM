@@ -1,6 +1,6 @@
 @extends('layout.front.master')
 @section('title')
-Orders
+Pending Orders
 @endsection
 
 @section('body')
@@ -22,7 +22,7 @@ Orders
 										<span class="help-block text-danger"> {{ Session::get('fail') }}</span>
 								@endif
 							</div>
-							<div class="panel-body">
+							<div class="panel-body fg-scrollabletable">
 								<table class="table table-bordered table-striped" id="myTable" cellspacing="0" width="100%">
 									<thead>
 										<tr>

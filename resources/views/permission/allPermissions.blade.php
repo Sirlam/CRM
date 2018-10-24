@@ -33,17 +33,17 @@ Permission Management
           										<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
           									</div>-->
           								</div>
-          								<div class="panel-body no-padding">
+          								<div class="panel-body no-padding fg-scrollabletable">
           									<table class="table table-bordered table-striped" id="myTable">
           										<thead>
           											<tr>
-          												<th>Description</th>
-                                  <th>Route URL</th>
-                                  <th>Active</th>
-                                  <th>Tag</th>
-                                  <th>Parent Permission</th>
-                                  <th>Edit</th>
-                                  <th>Map</th>
+          												<th class="col-sm-2">Description</th>
+                                  <th class="col-sm-2">Route URL</th>
+                                  <th class="col-sm-2">Active</th>
+                                  <th class="col-sm-2">Tag</th>
+                                  <th class="col-sm-3">Parent Permission</th>
+                                  <th class="col-sm-2">Edit</th>
+                                  <th class="col-sm-2">Map</th>
           											</tr>
           										</thead>
           										<tbody>

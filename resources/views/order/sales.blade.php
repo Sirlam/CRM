@@ -1,6 +1,6 @@
 @extends('layout.front.master')
 @section('title')
-Sales
+Redeemed Orders
 @endsection
 
 @section('body')
@@ -17,8 +17,8 @@ Sales
 							<div class="panel-heading">
 								<!--<h3 class="panel-title">Sales</h3>-->
 							</div>
-							<div class="panel-body">
-								<table class="table table-bordered table-striped table-responsive" id="myTable">
+							<div class="panel-body fg-scrollabletable">
+								<table class="table table-bordered table-striped" id="myTable">
 									<thead>
 										<tr>
 											<th>Order ID</td>

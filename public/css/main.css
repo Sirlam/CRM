@@ -1769,6 +1769,21 @@ ul.activity-timeline > li {
 /********************
  * ADDED BY ME
  ********************/
+ div.fg-scrollabletable table {
+    max-height: 100% !important;
+    width: 100% !important;
+    overflow: auto;
+    -o-overflow: auto;
+    -moz-verflow: auto;
+    -ms-overflow: auto;
+    -webkit-overflow: auto;
+    display: block;
+    -o-display: block;
+    -moz-display: block;
+    -ms-display: block;
+    -webkit-display: block;
+}
+
 .btn-success{
   color:#fff;
   background-color:#007456;
