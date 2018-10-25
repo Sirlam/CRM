@@ -36,14 +36,29 @@ class UserController extends Controller
       $pending = Order::getOrdersByPickupId(Auth::user()->location_id)->content;
       $sales = Sold::where('pickup_id', Auth::user()->location_id)->get();
       $order_status = OrderStatus::statusByLanguageId(1)->content;
-      return view('user.dashboard')
-              ->with('locations', $locations)
-              ->with('menus', $menus)
-              ->with('customers', $customers)
-              ->with('pending', $pending)
-              ->with('orders', $orders)
-              ->with('order_status', $order_status)
-              ->with('sales', $sales);
+
+      if(Auth::user()->role_id == 3)
+      {
+        return view('user.dashboardV2')
+                ->with('locations', $locations)
+                ->with('menus', $menus)
+                ->with('customers', $customers)
+                ->with('pending', $pending)
+                ->with('orders', $orders)
+                ->with('order_status', $order_status)
+                ->with('sales', $sales);
+      }
+      else {
+        return view('user.dashboard')
+                ->with('locations', $locations)
+                ->with('menus', $menus)
+                ->with('customers', $customers)
+                ->with('pending', $pending)
+                ->with('orders', $orders)
+                ->with('order_status', $order_status)
+                ->with('sales', $sales);
+      }
+
     }
 
     //Logout User

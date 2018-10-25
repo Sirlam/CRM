@@ -15,6 +15,7 @@
 <script src="{{URL::asset('vendor/chartist/js/chartist.min.js')}}"></script>
 <script src="{{URL::asset('vendor/data-tables/js/jquery.dataTables.js')}}"></script>
 <script src="{{URL::asset('js/klorofil-common.js')}}"></script>
+<script src="{{URL::asset('js/jquery.table2excel.js')}}"></script>
 <script type="text/javascript">
 $(document).ready( function () {
     $('#myTable').DataTable({
@@ -22,6 +23,15 @@ $(document).ready( function () {
             "decimal": ",",
             "thousands": "."
         }
+    });
+
+    $('#export').click(function() {
+        $('#reportTable').table2excel({
+            exclude: ".noExl",
+            name: "Worksheet Name",
+            fileext: ".xls",
+            filename: "Report File"
+        });
     });
 
     $('#special tfoot th').each( function () {

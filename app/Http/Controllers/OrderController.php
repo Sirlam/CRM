@@ -163,7 +163,7 @@ class OrderController extends Controller
               ->with('order_status', $order_status)
               ->with('roles', $roles)
               ->with('success', 'Redeemed Succesfully');
-            }            
+            }
           } catch (\Exception $e) {
             return Redirect::back()
             ->with('order', $order)

@@ -18,7 +18,7 @@ Report
                     @elseif (Session::has('fail'))
       				          <span class="help-block text-danger"> {{ Session::get('fail') }}</span>
                     @endif
-                    <p class="panel-subtitle pull-right"><a href="#" class="btn btn-danger"><i class="fa fa-file"></i> Excel Export</a></p>
+                    <p class="panel-subtitle pull-right"><a href="#" class="btn btn-danger" id="export"><i class="fa fa-file"></i> Excel Export</a></p>
                 </div>
                 <div class="clearfix"></div>
                 <div class="panel-body">
@@ -95,7 +95,7 @@ Report
           									</div>-->
           								</div>
           								<div class="panel-body no-padding fg-scrollabletable">
-          									<table class="table table-striped" id="myTable">
+          									<table class="table table-striped" id="reportTable">
           										<thead>
           											<tr>
           												<th class="col-sm-2">Order Id</th>
