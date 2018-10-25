@@ -41,7 +41,6 @@ class UserController extends Controller
       {
         return view('user.dashboardV2')
                 ->with('locations', $locations)
-                //->with('menus', $menus)
                 ->with('customers', $customers)
                 ->with('pending', $pending)
                 ->with('orders', $orders)
