@@ -50,7 +50,7 @@ class UserController extends Controller
       else {
         return view('user.dashboard')
                 ->with('locations', $locations)
-                ->with('menus', $menus)
+                //->with('menus', $menus)
                 ->with('customers', $customers)
                 ->with('pending', $pending)
                 ->with('orders', $orders)
