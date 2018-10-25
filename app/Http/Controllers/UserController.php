@@ -26,12 +26,12 @@ class UserController extends Controller
     public function dashboard(){
       $locations = Pickup::getPickups()->content;
       $customers = Customer::getCustomers(Auth::user()->location_id)->content;
-      $menus = DB::table('oc_agent_permissions')->join('oc_agent_role_perm', 'oc_agent_permissions.id', '=', 'oc_agent_role_perm.permission_id')
-                  ->where('oc_agent_role_perm.role_id', Auth::user()->role_id)->where('oc_agent_permissions.is_active', 1)
-                  ->select('oc_agent_permissions.id', 'oc_agent_role_perm.role_id', 'oc_agent_permissions.permission_description',
-                    'oc_agent_permissions.parent_permission', 'oc_agent_permissions.id_tag', 'oc_agent_permissions.icon_class',
-                    'oc_agent_permissions.route_url', 'oc_agent_permissions.is_open_class', 'oc_agent_permissions.toggle_icon')
-                  ->get();
+      //$menus = DB::table('oc_agent_permissions')->join('oc_agent_role_perm', 'oc_agent_permissions.id', '=', 'oc_agent_role_perm.permission_id')
+      //            ->where('oc_agent_role_perm.role_id', Auth::user()->role_id)->where('oc_agent_permissions.is_active', 1)
+      //            ->select('oc_agent_permissions.id', 'oc_agent_role_perm.role_id', 'oc_agent_permissions.permission_description',
+      //              'oc_agent_permissions.parent_permission', 'oc_agent_permissions.id_tag', 'oc_agent_permissions.icon_class',
+      //              'oc_agent_permissions.route_url', 'oc_agent_permissions.is_open_class', 'oc_agent_permissions.toggle_icon')
+      //            ->get();
       $orders = Order::getOrdersByPickupId(Auth::user()->location_id)->content;
       $pending = Order::getOrdersByPickupId(Auth::user()->location_id)->content;
       $sales = Sold::where('pickup_id', Auth::user()->location_id)->get();
@@ -41,7 +41,7 @@ class UserController extends Controller
       {
         return view('user.dashboardV2')
                 ->with('locations', $locations)
-                ->with('menus', $menus)
+                //->with('menus', $menus)
                 ->with('customers', $customers)
                 ->with('pending', $pending)
                 ->with('orders', $orders)
