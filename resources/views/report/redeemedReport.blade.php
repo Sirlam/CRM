@@ -48,6 +48,7 @@ Report
                             </div>
                             <div class="col-md-8">
                               <select class="form-control" name="location_id" id="location_id">
+                                    <option value="0" selected="selected">All</option>
                                  @foreach($locations as $item)
                                     <option value="{{$item->pickup_id}}">{{$item->name}}</option>
                                  @endforeach
@@ -110,7 +111,23 @@ Report
           											</tr>
           										</thead>
           										<tbody>
-
+                                @foreach($sold as $sales)
+                                <tr>
+                                  <td>{{$sales->order_id}}</td>
+                                  <td>{{$sales->customer_id}}</td>
+                                  <td>{{$sales->created_at}}</td>
+                                  <td>{{$sales->firstname}} {{$sales->lastname}}</td>
+                                  <td>{{$sales->telephone}}</td>
+                                  <td>{{$sales->name}}</td>
+                                  <td>{{$sales->quantity}}</td>
+                                  <td>{{$sales->total}}</td>
+                                  @foreach($locations as $location)
+                                    @if($sales->pickup_id == $location->pickup_id)
+                                      <td>{{$location->name}}</td>
+                                    @endif
+                                  @endforeach
+                                </tr>
+                                @endforeach
           										</tbody>
           									</table>
           								</div>

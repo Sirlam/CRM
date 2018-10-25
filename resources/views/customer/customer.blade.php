@@ -73,6 +73,7 @@
 												<th>Quantity</th>
 												<th>Total</th>
 												<th>Status</th>
+												<th>Date</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -88,7 +89,9 @@
 														<span class="label label-success">{{$status->name}}</span>
 													@endif
 												@endforeach
-											</td>
+												</td>
+												<td>{{$order->date_added}}</td>
+
 											</tr>
 											@endforeach
 										</tbody>

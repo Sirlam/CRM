@@ -95,7 +95,7 @@ Report
           									</div>-->
           								</div>
           								<div class="panel-body no-padding fg-scrollabletable">
-          									<table class="table table-bordered table-striped">
+          									<table class="table table-striped" id="myTable">
           										<thead>
           											<tr>
           												<th class="col-sm-2">Order Id</th>

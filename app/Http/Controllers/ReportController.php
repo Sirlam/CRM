@@ -35,9 +35,11 @@ class ReportController extends Controller
 
     public function redeemedReport(){
       $locations = Pickup::getPickups()->content;
+      $sold = Sold::all();
       $roles = Role::all();
 
       return view('report.redeemedReport')
+              ->with('sold', $sold)
               ->with('locations', $locations)
               ->with('roles', $roles);
     }

@@ -155,26 +155,25 @@ class OrderController extends Controller
           $sold->quantity = $order->quantity;
           $sold->pickup_id = $order->pick_up;
 
-          if($sold->save()){
-            return Redirect::route('allOrders')
-            ->with('order_details', $order_details)
-            ->with('locations', $locations)
-            ->with('order_status', $order_status)
-            ->with('roles', $roles)
-            ->with('success', 'Sold Succesfully');
-          }else {
-            // code...
+          try {
+            if($sold->save()){
+              return Redirect::route('allOrders')
+              ->with('order_details', $order_details)
+              ->with('locations', $locations)
+              ->with('order_status', $order_status)
+              ->with('roles', $roles)
+              ->with('success', 'Redeemed Succesfully');
+            }            
+          } catch (\Exception $e) {
             return Redirect::back()
             ->with('order', $order)
             ->with('order_details', $order_details)
             ->with('order_status', $order_status)
             ->with('locations', $locations)
             ->with('roles', $roles)
-            ->with('fail', 'This item is already sold!')
+            ->with('fail', 'This item has been Redeemed or IMEI used!')
             ->withInput();
           }
-
-
       }
     }
 }

@@ -34,7 +34,13 @@ class CustomerController extends Controller
     }
 
     public function customer($id){
-      $customer = Customer::getCustomerById($id)->content;
+      try{
+        $customer = Customer::getCustomerById($id)->content;
+      }catch(\Exception $e){
+        return Redirect::back()
+        ->with('fail', 'Details for this customer does not exist');
+      }
+
       $locations = Pickup::getPickups()->content;
       //$user = Auth::user();
       $roles = Role::all();

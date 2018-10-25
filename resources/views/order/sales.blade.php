@@ -17,8 +17,50 @@ Redeemed Orders
 							<div class="panel-heading">
 								<!--<h3 class="panel-title">Sales</h3>-->
 							</div>
+
+							<!--Search Row-->
+							<form class="form-horizontal" role="form">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group">
+											<div class="col-md-4">
+												<label for="order_id">Order ID</label>
+											</div>
+											<div class="col-md-8">
+												<input type="text" class="form-control" id="order_id" name="order_id">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-4">
+												<label for="telephone">Phone</label>
+											</div>
+											<div class="col-md-8">
+												<input type="text" class="form-control" id="telephone" name="telephone">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+											<div class="col-md-4">
+												<label for="name">Customer Name</label>
+											</div>
+											<div class="col-md-8">
+												<input type="text" class="form-control" id="name" name="name">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-7 col-md-offset-5">
+										<button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
+									</div>
+								</div>
+							</form>
+							<!--Search Row-->
+
 							<div class="panel-body fg-scrollabletable">
-								<table class="table table-bordered table-striped" id="myTable">
+								<table class="table table-striped" id="myTable">
 									<thead>
 										<tr>
 											<th>Order ID</td>
@@ -26,7 +68,6 @@ Redeemed Orders
 											<th>Redeemed Date</th>
 											<th>Customer</th>
 											<th>Phone</th>
-											<!--<th>Email</th>-->
 											<th>Name</th>
 											<th>Quantity</th>
 											<th>Amount</th>
@@ -41,7 +82,6 @@ Redeemed Orders
 											<td>{{$sale->created_at}}</td>
 											<td>{{$sale->firstname}} {{$sale->lastname}}</td>
 											<td>{{$sale->telephone}}</td>
-											<!--<td>{{$sale->email}}</td>-->
 											<td>{{$sale->name}}</td>
 											<td>{{$sale->quantity}}</td>
 											<td>{{$sale->total}}</td>

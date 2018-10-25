@@ -12,7 +12,7 @@ Audit Log
             <!-- OVERVIEW -->
             <div class="panel panel-headline">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Activity Log</h3>
+                    <h3 class="panel-title">Audit Log</h3>
                     @if (Session::has('success'))
       				          <span class="help-block text-success"> {{ Session::get('success') }}</span>
                     @elseif (Session::has('fail'))

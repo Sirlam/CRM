@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
 use App\Classes\Pickup;
 use App\Role;
@@ -25,16 +26,23 @@ class UserController extends Controller
     public function dashboard(){
       $locations = Pickup::getPickups()->content;
       $customers = Customer::getCustomers(Auth::user()->location_id)->content;
-      $roles = Role::all();
+      $menus = DB::table('oc_agent_permissions')->join('oc_agent_role_perm', 'oc_agent_permissions.id', '=', 'oc_agent_role_perm.permission_id')
+                  ->where('oc_agent_role_perm.role_id', Auth::user()->role_id)->where('oc_agent_permissions.is_active', 1)
+                  ->select('oc_agent_permissions.id', 'oc_agent_role_perm.role_id', 'oc_agent_permissions.permission_description',
+                    'oc_agent_permissions.parent_permission', 'oc_agent_permissions.id_tag', 'oc_agent_permissions.icon_class',
+                    'oc_agent_permissions.route_url', 'oc_agent_permissions.is_open_class', 'oc_agent_permissions.toggle_icon')
+                  ->get();
       $orders = Order::getOrdersByPickupId(Auth::user()->location_id)->content;
-      $pending = Order::getPendingOrdersByPickupId(Auth::user()->location_id)->content;
+      $pending = Order::getOrdersByPickupId(Auth::user()->location_id)->content;
       $sales = Sold::where('pickup_id', Auth::user()->location_id)->get();
+      $order_status = OrderStatus::statusByLanguageId(1)->content;
       return view('user.dashboard')
               ->with('locations', $locations)
-              ->with('roles', $roles)
+              ->with('menus', $menus)
               ->with('customers', $customers)
               ->with('pending', $pending)
               ->with('orders', $orders)
+              ->with('order_status', $order_status)
               ->with('sales', $sales);
     }
 

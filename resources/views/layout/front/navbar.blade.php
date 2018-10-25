@@ -74,16 +74,19 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="{{URL::route('dashboard')}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+              <li><a href="{{URL::route('dashboard')}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
                 <li>
                   <a href="#subPage" data-toggle="collapse" class="collapsed"><i class="lnr lnr-user"></i> <span>Customers</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
                   <div id="subPage" class="collapse ">
                       <ul class="nav">
+                          @if(Auth::user()->role_id == 2 || Auth::user()->role_id == 3)
                           <li><a href="{{URL::route('allCustomers')}}" class="">All Customers</a></li>
+                          @endif
                           <li><a href="#" class="">Redeem Lost Token</a></li>
                       </ul>
                   </div>
                 </li>
+                @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
                 <li>
                     <a href="#subPage1" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Orders</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                     <div id="subPage1" class="collapse ">
@@ -93,6 +96,8 @@
                         </ul>
                     </div>
                 </li>
+                @endif
+                @if(Auth::user()->role_id == 2 || Auth::user()->role_id == 3)
                 <li>
                   <a href="#subPage2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-dice"></i> <span>Reports & Analytics</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                   <div id="subPage2" class="collapse ">
@@ -102,6 +107,8 @@
                       </ul>
                   </div>
                 </li>
+                @endif
+                @if(Auth::user()->role_id == 2)
                 <li>
                   <a href="#subPage3" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>Configuration</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
                   <div id="subPage3" class="collapse">
@@ -112,9 +119,12 @@
                       </ul>
                   </div>
                 </li>
+                @endif
+                @if(Auth::user()->role_id == 2)
                 <li>
                   <a href="{{URL::route('auditLog')}}"><i class="lnr lnr-linearicons"></i> <span>Audit Log</span></a>
                 </li>
+                @endif
             </ul>
         </nav>
     </div>

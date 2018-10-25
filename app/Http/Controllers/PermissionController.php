@@ -25,7 +25,7 @@ class PermissionController extends Controller
 {
     //
     public function allPermissions(){
-      $permissions = Permission::all();
+      $permissions = Permission::paginate(10);
       $locations = Pickup::getPickups()->content;
       $roles = Role::all();
 

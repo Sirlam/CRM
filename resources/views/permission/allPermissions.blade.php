@@ -34,7 +34,7 @@ Permission Management
           									</div>-->
           								</div>
           								<div class="panel-body no-padding fg-scrollabletable">
-          									<table class="table table-bordered table-striped" id="myTable">
+          									<table class="table table-bordered table-striped">
           										<thead>
           											<tr>
           												<th class="col-sm-2">Description</th>
@@ -68,10 +68,9 @@ Permission Management
           									</table>
           								</div>
           								<div class="panel-footer">
-          									<!--<div class="row">
-          										<div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> Recent</span></div>
-          										<div class="col-md-6 text-right"><a href="{{URL::route('allOrders')}}" class="btn btn-primary">View All Orders</a></div>
-          									</div>-->
+          									<div class="row">
+          										<span class="pull-right">{{$permissions->links()}}</span>
+          									</div>
           								</div>
           							</div>
           							<!-- END RECENT PURCHASES -->
