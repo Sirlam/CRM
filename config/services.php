@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'sendgrid' => [
+        'username' =>  env('MAIL_USERNAME'),
+        'password' => env('MAIL_PASSWORD'),
+        'api_key' => env('SENDGRID_API_KEY'),
+    ],
 ];

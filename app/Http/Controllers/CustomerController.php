@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+//use Illuminate\Support\Facades\Mail;
 
 use App\Classes\Pickup;
 use App\Role;
@@ -61,4 +64,82 @@ class CustomerController extends Controller
               ->with('locations', $locations)
               ->with('roles', $roles);
     }
+
+    public function redeemToken(){
+      $locations = Pickup::getPickups()->content;
+      $roles = Role::all();
+
+      return view('customer.redeemToken')
+              ->with('locations', $locations)
+              ->with('roles', $roles);
+    }
+
+    public function postRedemToken(Request $request){
+      $locations = Pickup::getPickups()->content;
+      $roles = Role::all();
+
+      $validate = Validator::make(Input::all(), array(
+         'order_id' => 'required',
+         'telephone' => 'required',
+      ));
+
+      if($validate->fails()){
+          return Redirect::route('redeemToken')
+            ->with('locations', $locations)
+            ->with('roles', $roles)
+            ->withErrors($validate)->withInput();
+      }
+      else {
+        $order_id = $request['order_id'];
+        $telephone = $request['telephone'];
+
+        try{
+          $order = Order::orderDetailsByOrderId($order_id)->content[0];
+          //dd($order->telephone);
+
+          if($telephone == $order->telephone){
+            $email = $order->email;
+            $token = $order->token;
+
+            return Redirect::back()
+            ->with('success', 'Order found')
+            ->with(['token' => $token])
+            ->with(['email' => $email]);
+          }else {
+            // code...
+              return Redirect::back()
+              ->with('fail', 'This phone number does not match this order');
+            }
+        }catch(\Exception $e){
+          return Redirect::back()
+          ->with('fail', 'This order does not exist');
+        }
+      }
+    }
+
+    public function sendMail(Request $request){
+      $locations = Pickup::getPickups()->content;
+      $roles = Role::all();
+
+      $token = $request['token'];
+      $email = $request['email'];
+      $subject = "Redeem Lost Token";
+      $body = "The token for your order is <b>" . $token . "</b>";
+
+
+        try{
+          \Mail::send ( [], [], function ($message) use ($email, $body) {
+            $message->from ( 'support@wepayng.com', 'WePayng' );
+            $message->to($email)->subject ( 'Redeem Lost Token' );
+            $message->setBody($body);
+            } );
+            return Redirect::back()
+            ->with('success', 'Token has been resent');
+          }catch(\Exception $e){
+            return Redirect::back()
+            ->with('fail', 'Error resending token. Contact administrator');
+          }
+    }
+
+
 }

@@ -18,6 +18,7 @@ Route::group(['middleware' => ['auth']], function(){
   //Customer Routes
   Route::get('allCustomers', array('uses' => 'CustomerController@allCustomers', 'as' => 'allCustomers'));
   Route::get('customer/{id}', array('uses' => 'CustomerController@customer', 'as' => 'customer'));
+  Route::get('redeemToken', array('uses' => 'CustomerController@redeemToken', 'as' => 'redeemToken'));
 
   //Order Routes
   Route::get('allOrders', array('uses' => 'OrderController@allOrders', 'as' => 'allOrders'));
@@ -49,6 +50,7 @@ Route::group(['middleware' => ['auth']], function(){
   //Audit Routes
   Route::get('auditLog', array('uses' => 'AuditController@auditLog', 'as' => 'auditLog'));
 
+  //Post routes
   Route::group(array('before' => 'csrf'), function(){
     //Post Order
     Route::post('postOrder/{id}', array('uses' => 'OrderController@postOrder', 'as' => 'postOrder'));
@@ -62,6 +64,9 @@ Route::group(['middleware' => ['auth']], function(){
     //Post Permission
     Route::post('postPermission', array('uses' => 'PermissionController@postPermission', 'as' => 'postPermission'));
     Route::post('postRolePerm/{id}', array('uses' => 'PermissionController@postRolePerm', 'as' => 'postRolePerm'));
+    //Post Customers
+    Route::post('postRedemToken', array('uses' => 'CustomerController@postRedemToken', 'as' => 'postRedemToken'));
+    Route::post('sendMail', array('uses' => 'CustomerController@sendMail', 'as' => 'sendMail'));
     });
 
 });

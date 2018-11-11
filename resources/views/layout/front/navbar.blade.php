@@ -82,7 +82,7 @@
                           @if(Auth::user()->role_id == 2 || Auth::user()->role_id == 3)
                           <li><a href="{{URL::route('allCustomers')}}" class="">All Customers</a></li>
                           @endif
-                          <li><a href="#" class="">Redeem Lost Token</a></li>
+                          <li><a href="{{URL::route('redeemToken')}}" class="">Redeem Lost Token</a></li>
                       </ul>
                   </div>
                 </li>
