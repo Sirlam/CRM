@@ -18,11 +18,23 @@
 <script src="{{URL::asset('js/jquery.table2excel.js')}}"></script>
 <script type="text/javascript">
 $(document).ready( function () {
-    $('#myTable').DataTable({
-      "language": {
-            "decimal": ",",
-            "thousands": "."
-        }
+    var otable = $('#myTable').DataTable({
+      "searching": false
+    });
+
+    $('#search').click(function(){
+      var param = $('#param').val().toLowerCase();
+      var param2 = $('#param2').val().toLowerCase();
+      var param3 = $('#param3').val().toLowerCase();
+      var param4 = $('#param4').val().toLowerCase();
+      //console.log(param);
+      $("#myTable tbody tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(param) > -1)
+        $(this).toggle($(this).text().toLowerCase().indexOf(param2) > -1)
+        $(this).toggle($(this).text().toLowerCase().indexOf(param3) > -1)
+        $(this).toggle($(this).text().toLowerCase().indexOf(param4) > -1)
+      });
+
     });
 
     $('#export').click(function() {

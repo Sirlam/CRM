@@ -23,7 +23,7 @@ Report
                 <div class="clearfix"></div>
                 <div class="panel-body">
                     <!--Search Row-->
-                    <form class="form-horizontal" role="form">
+                    <!--<form class="form-horizontal" role="form">-->
                       <div class="row">
                         <div class="col-md-5">
                           <div class="form-group">
@@ -80,7 +80,7 @@ Report
                           <button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
                         </div>
                       </div>
-                    </form>
+                    <!--</form>-->
                     <!--Search Row-->
                     <!--ROW-->
                     <div class="row">

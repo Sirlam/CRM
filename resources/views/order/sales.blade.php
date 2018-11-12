@@ -19,7 +19,7 @@ Redeemed Orders
 							</div>
 
 							<!--Search Row-->
-							<form class="form-horizontal" role="form">
+							<!--<form class="form-horizontal" role="form">-->
 								<div class="row">
 									<div class="col-md-5">
 										<div class="form-group">
@@ -27,7 +27,7 @@ Redeemed Orders
 												<label for="order_id">Order ID</label>
 											</div>
 											<div class="col-md-8">
-												<input type="text" class="form-control" id="order_id" name="order_id">
+												<input type="text" class="form-control" id="param" name="order_id">
 											</div>
 										</div>
 										<div class="form-group">
@@ -35,7 +35,7 @@ Redeemed Orders
 												<label for="telephone">Phone</label>
 											</div>
 											<div class="col-md-8">
-												<input type="text" class="form-control" id="telephone" name="telephone">
+												<input type="text" class="form-control" id="param2" name="telephone">
 											</div>
 										</div>
 									</div>
@@ -45,7 +45,7 @@ Redeemed Orders
 												<label for="name">Customer Name</label>
 											</div>
 											<div class="col-md-8">
-												<input type="text" class="form-control" id="name" name="name">
+												<input type="text" class="form-control" id="param3" name="name">
 											</div>
 										</div>
 									</div>
@@ -53,25 +53,25 @@ Redeemed Orders
 
 								<div class="row">
 									<div class="col-md-7 col-md-offset-5">
-										<button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
+										<button type="button" id="search" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
 									</div>
 								</div>
-							</form>
+							<!--</form>-->
 							<!--Search Row-->
 
 							<div class="panel-body fg-scrollabletable">
 								<table class="table table-striped" id="myTable">
 									<thead>
 										<tr>
-											<th>Order ID</td>
-											<th>Customer ID</td>
-											<th>Redeemed Date</th>
-											<th>Customer</th>
-											<th>Phone</th>
-											<th>Name</th>
-											<th>Quantity</th>
-											<th>Amount</th>
-											<th>Location</th>
+											<th class="col-sm-2">Order ID</td>
+											<th class="col-sm-2">Customer ID</td>
+											<th class="col-sm-2">Redeemed Date</th>
+											<th class="col-sm-2">Customer</th>
+											<th class="col-sm-2">Phone</th>
+											<th class="col-sm-2">Name</th>
+											<th class="col-sm-2">Quantity</th>
+											<th class="col-sm-2">Amount</th>
+											<th class="col-sm-2">Location</th>
 										</tr>
 									</thead>
 									<tbody>

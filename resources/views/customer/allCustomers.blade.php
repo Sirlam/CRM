@@ -23,7 +23,7 @@ Customers
 								@endif
 							</div>
 							<!--Search Row-->
-							<form class="form-horizontal" role="form">
+							<!--<form class="form-horizontal" role="form">-->
 								<div class="row">
 									<div class="col-md-5">
 										<div class="form-group">
@@ -31,7 +31,7 @@ Customers
 												<label for="firstname">First Name</label>
 											</div>
 											<div class="col-md-8">
-												<input type="text" class="form-control" id="firstname" name="firstname">
+												<input type="text" class="form-control" id="param" name="firstname">
 											</div>
 										</div>
 										<div class="form-group">
@@ -39,7 +39,7 @@ Customers
 												<label for="lastname">Last Name</label>
 											</div>
 											<div class="col-md-8">
-												<input type="text" class="form-control" id="lastname" name="lastname">
+												<input type="text" class="form-control" id="param2" name="lastname">
 											</div>
 										</div>
 									</div>
@@ -49,7 +49,7 @@ Customers
 												<label for="telephone">Phone</label>
 											</div>
 											<div class="col-md-8">
-												<input type="text" class="form-control" id="telephone" name="telephone">
+												<input type="text" class="form-control" id="param3" name="telephone">
 											</div>
 										</div>
 										<div class="form-group">
@@ -57,7 +57,7 @@ Customers
 												<label for="email">Email</label>
 											</div>
 											<div class="col-md-8">
-												<input type="text" class="form-control" id="email" name="email">
+												<input type="text" class="form-control" id="param4" name="email">
 											</div>
 										</div>
 									</div>
@@ -65,16 +65,16 @@ Customers
 
 								<div class="row">
 									<div class="col-md-7 col-md-offset-5">
-										<button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
+										<button type="button" class="btn btn-success" id="search"><i class="fa fa-search"></i> Search</button>
 									</div>
 								</div>
-							</form>
+							<!--</form>-->
 							<!--Search Row-->
 							<div class="panel-body fg-scrollabletable">
 								<table class="table table-striped" id="myTable">
 									<thead>
 										<tr>
-											<th class="col-sm-2">#</th>
+											<th class="col-sm-3">#</th>
 											<th class="col-sm-3">First Name</th>
 											<th class="col-sm-3">Last Name</th>
 											<th class="col-sm-3">Email</th>

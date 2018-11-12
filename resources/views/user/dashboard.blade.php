@@ -61,7 +61,7 @@ Dashboard
                     </div>-->
                     <!-- END ROW -->
                     <!--Search Row-->
-                    <form class="form-horizontal" role="form">
+                    <!--<form class="form-horizontal" role="form">-->
                       <div class="row">
                         <div class="col-md-5">
                           <div class="form-group">
@@ -69,7 +69,7 @@ Dashboard
                               <label for="order_id">Order ID</label>
                             </div>
                             <div class="col-md-8">
-                              <input type="text" class="form-control" id="order_id" name="order_id">
+                              <input type="text" class="form-control" id="param" name="order_id">
                             </div>
                           </div>
                           <div class="form-group">
@@ -77,7 +77,7 @@ Dashboard
                               <label for="telephone">Phone</label>
                             </div>
                             <div class="col-md-8">
-                              <input type="text" class="form-control" id="telephone" name="telephone">
+                              <input type="text" class="form-control" id="param2" name="telephone">
                             </div>
                           </div>
                         </div>
@@ -87,7 +87,7 @@ Dashboard
                               <label for="name">Customer Name</label>
                             </div>
                             <div class="col-md-8">
-                              <input type="text" class="form-control" id="name" name="name">
+                              <input type="text" class="form-control" id="param3" name="name">
                             </div>
                           </div>
                         </div>
@@ -95,10 +95,10 @@ Dashboard
 
                       <div class="row">
                         <div class="col-md-7 col-md-offset-5">
-                          <button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
+                          <button type="button" id="search" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
                         </div>
                       </div>
-                    </form>
+                    <!--</form>-->
                     <!--Search Row-->
                     <!--ROW-->
                     <div class="row">

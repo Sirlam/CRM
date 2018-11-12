@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
-//use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Message ;
 
 use App\Classes\Pickup;
 use App\Role;
@@ -128,7 +129,7 @@ class CustomerController extends Controller
 
 
         try{
-          \Mail::send ( [], [], function ($message) use ($email, $body) {
+          $response = Mail::send ( [], [], function (Message $message) use ($email, $body) {
             $message->from ( 'support@wepayng.com', 'WePayng' );
             $message->to($email)->subject ( 'Redeem Lost Token' );
             $message->setBody($body);
