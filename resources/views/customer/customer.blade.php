@@ -65,7 +65,7 @@
 						<div class="tab-content">
 							<div class="tab-pane fade in active" id="tab-bottom-left2">
 								<div class="table-responsive">
-									<table class="table project-table" id="myTable">
+									<table class="table project-table" id="special1">
 										<thead>
 											<tr>
 												<th>Order ID</th>
