@@ -21,6 +21,24 @@ Role Management
                     <p class="panel-subtitle pull-right"><a href="{{route('addRole')}}" class="btn btn-success"><i class="fa fa-plus-square"></i> Add New</a></p>
                 </div>
                 <div class="panel-body">
+                  <!--Search Row-->
+                  <div class="row">
+                    <table class="table table-responsive" id="exampleSearch">
+                      <tfoot>
+                        <tr>
+                            <th class="col-sm-4">Role Name</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-7 col-md-offset-5">
+                      <button type="button" id="search" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
+                    </div>
+                  </div>
+                  <!--Search Row-->
+
                     <!--ROW-->
                     <div class="row">
           						<div class="col-md-12">
