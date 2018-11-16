@@ -20,7 +20,28 @@ User Management
                     @endif
                     <p class="panel-subtitle pull-right"><a href="{{route('addUser')}}" class="btn btn-success"><i class="fa fa-plus-square"></i> Add New</a></p>
                 </div>
+
                 <div class="panel-body">
+                  <!--ROW-->
+
+                  <div class="row">
+  									<table class="table table-responsive" id="exampleSearch">
+  										<tfoot>
+  											<tr>
+  													<th>Email</th>
+  													<th>Full Name</th>
+  													<th>Mobile</th>
+  											</tr>
+  										</tfoot>
+  					        </table>
+  								</div>
+
+  								<div class="row">
+  									<div class="col-md-7 col-md-offset-5">
+  										<button type="button" class="btn btn-success" id="search"><i class="fa fa-search"></i> Search</button>
+  									</div>
+  								</div>
+                  <!--End row-->
                     <!--ROW-->
                     <div class="row">
           						<div class="col-md-12">

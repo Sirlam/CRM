@@ -22,45 +22,20 @@ Customers
 										<span class="help-block text-danger"> {{ Session::get('fail') }}</span>
 								@endif
 							</div>
+
 							<!--Search Row-->
-							<!--<form class="form-horizontal" role="form">-->
 								<div class="row">
-									<div class="col-md-5">
-										<div class="form-group">
-											<div class="col-md-4">
-												<label for="firstname">First Name</label>
-											</div>
-											<div class="col-md-8">
-												<input type="text" class="form-control" id="param" name="firstname">
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="col-md-4">
-												<label for="lastname">Last Name</label>
-											</div>
-											<div class="col-md-8">
-												<input type="text" class="form-control" id="param2" name="lastname">
-											</div>
-										</div>
-									</div>
-									<div class="col-md-7">
-										<div class="form-group">
-											<div class="col-md-4">
-												<label for="telephone">Phone</label>
-											</div>
-											<div class="col-md-8">
-												<input type="text" class="form-control" id="param3" name="telephone">
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="col-md-4">
-												<label for="email">Email</label>
-											</div>
-											<div class="col-md-8">
-												<input type="text" class="form-control" id="param4" name="email">
-											</div>
-										</div>
-									</div>
+									<table class="table table-responsive" id="exampleSearch">
+										<tfoot>
+											<tr>
+													<th class="hidden"></th>
+													<th>First Name</th>
+													<th>Last Name</th>
+													<th>Email</th>
+													<th>Phone</th>
+											</tr>
+										</tfoot>
+					        </table>
 								</div>
 
 								<div class="row">
@@ -68,32 +43,36 @@ Customers
 										<button type="button" class="btn btn-success" id="search"><i class="fa fa-search"></i> Search</button>
 									</div>
 								</div>
-							<!--</form>-->
 							<!--Search Row-->
-							<div class="panel-body fg-scrollabletable">
-								<table class="table table-striped" id="myTable">
-									<thead>
-										<tr>
-											<th class="col-sm-3">#</th>
-											<th class="col-sm-3">First Name</th>
-											<th class="col-sm-3">Last Name</th>
-											<th class="col-sm-3">Email</th>
-                      <th class="col-sm-3">Phone</th>
-										</tr>
-									</thead>
-									<tbody>
-                    @foreach($customers as $customer)
-										<tr>
-											<td><a href="{{url('customer/'.$customer->customer_id)}}" class="btn btn-danger">View</a></td>
-											<td>{{$customer->firstname}}</td>
-											<td>{{$customer->lastname}}</td>
-											<td>{{$customer->email}}</td>
-                      <td>{{$customer->telephone}}</td>
-										</tr>
-                    @endforeach
-									</tbody>
-								</table>
+
+							<!--Row-->
+							<div class="row">
+								<div class="panel-body fg-scrollabletable">
+									<table class="table table-striped" id="myTable">
+										<thead>
+											<tr>
+												<th class="col-sm-3">#</th>
+												<th class="col-sm-3">First Name</th>
+												<th class="col-sm-3">Last Name</th>
+												<th class="col-sm-3">Email</th>
+	                      <th class="col-sm-3">Phone</th>
+											</tr>
+										</thead>
+										<tbody>
+	                    @foreach($customers as $customer)
+											<tr>
+												<td><a href="{{url('customer/'.$customer->customer_id)}}" class="btn btn-danger">View</a></td>
+												<td>{{$customer->firstname}}</td>
+												<td>{{$customer->lastname}}</td>
+												<td>{{$customer->email}}</td>
+	                      <td>{{$customer->telephone}}</td>
+											</tr>
+	                    @endforeach
+										</tbody>
+									</table>
+								</div>
 							</div>
+							<!--End row-->
 						</div>
 						<!-- END BORDERED TABLE -->
 					</div>

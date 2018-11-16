@@ -24,42 +24,25 @@ Pending Orders
 							</div>
 							<!--Search Row-->
 							<!--<form class="form-horizontal" role="form">-->
-								<div class="row">
-									<div class="col-md-5">
-										<div class="form-group">
-											<div class="col-md-4">
-												<label for="order_id">Order ID</label>
-											</div>
-											<div class="col-md-8">
-												<input type="text" class="form-control" id="param" name="order_id">
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="col-md-4">
-												<label for="telephone">Phone</label>
-											</div>
-											<div class="col-md-8">
-												<input type="text" class="form-control" id="param2" name="telephone">
-											</div>
-										</div>
-									</div>
-									<div class="col-md-7">
-										<div class="form-group">
-											<div class="col-md-4">
-												<label for="name">Customer Name</label>
-											</div>
-											<div class="col-md-8">
-												<input type="text" class="form-control" id="param3" name="name">
-											</div>
-										</div>
-									</div>
-								</div>
+							<div class="row">
+								<table class="table table-responsive" id="exampleSearch">
+									<tfoot>
+										<tr>
+												<th>Order ID</th>
+												<th>Product</th>
+												<th>Customer Name</th>
+												<th>Phone</th>
+										</tr>
+									</tfoot>
+				        </table>
+							</div>
 
-								<div class="row">
-									<div class="col-md-7 col-md-offset-5">
-										<button type="button" id="search" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
-									</div>
+							<div class="row">
+								<div class="col-md-7 col-md-offset-5">
+									<button type="button" id="search" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
 								</div>
+							</div>
+
 							<!--</form>-->
 							<!--Search Row-->
 							<div class="panel-body fg-scrollabletable">

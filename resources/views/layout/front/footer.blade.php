@@ -18,27 +18,28 @@
 <script src="{{URL::asset('js/jquery.table2excel.js')}}"></script>
 <script type="text/javascript">
 $(document).ready( function () {
+    //default dataTables
     $('#special1').DataTable();
-    
-    var otable = $('#myTable').DataTable({
-      "searching": false
-    });
 
-    $('#search').click(function(){
-      var param = $('#param').val().toLowerCase();
-      var param2 = $('#param2').val().toLowerCase();
-      var param3 = $('#param3').val().toLowerCase();
-      //var param4 = $('#param4').val().toLowerCase();
-      //console.log(param);
-      $("#myTable tbody tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(param) > -1)
-        $(this).toggle($(this).text().toLowerCase().indexOf(param2) > -1)
-        $(this).toggle($(this).text().toLowerCase().indexOf(param3) > -1)
-        //$(this).toggle($(this).text().toLowerCase().indexOf(param4) > -1)
-      });
+    //Indvidual column search
+    // Setup - add a text input to each footer cell
+    $('#exampleSearch tfoot th').each( function (index) {
+        var title = $(this).text();
+        $(this).html( '<input class="form-control" type="text" placeholder="'+title+'" id="column_'+index+'" />' );
+    } );
 
-    });
+    var table = $('#myTable').DataTable();
+    var search = $('#exampleSearch');
 
+    $('#search').on( 'click', function () {
+        table.columns( 0 ).search( document.getElementById('column_0').value ).draw();
+        table.columns( 1 ).search( document.getElementById('column_1').value ).draw();
+        table.columns( 2 ).search( document.getElementById('column_2').value ).draw();
+        table.columns( 3 ).search( document.getElementById('column_3').value ).draw();
+    } );
+
+
+    //Export function
     $('#export').click(function() {
         $('#reportTable').table2excel({
             exclude: ".noExl",
@@ -48,27 +49,9 @@ $(document).ready( function () {
         });
     });
 
-    $('#special tfoot th').each( function () {
-        var title = $(this).text();
-        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-    } );
 
-    // DataTable
-    var table = $('#special').DataTable();
-
-    // Apply the search
-    table.columns().every( function () {
-        var that = this;
-
-        $( 'input', this.footer() ).on( 'keyup change', function () {
-            if ( that.search() !== this.value ) {
-                that
-                    .search( this.value )
-                    .draw();
-            }
-        } );
-    } );
 } );
+//display password
 
 function showPassword(){
   var x = document.getElementById("password");
