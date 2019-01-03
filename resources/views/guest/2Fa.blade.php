@@ -21,7 +21,7 @@ Login
             </h2>
 					</div>
 					@if (Session::has('fail'))
-							<span class="help-block text-danger"> {{ Session::get('fail') }}</span>
+							<span class="help-block text-danger"> {{ Session::get('fail') }} <a href="{{URL::route('login')}}">Login</a> again</span>
 					@endif
 					@if($errors->has('token'))
 							<span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{$errors->first('token')}}</span>

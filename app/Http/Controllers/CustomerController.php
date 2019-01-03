@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Mail\Message ;
+use Illuminate\Mail\Message;
 
 use App\Classes\Pickup;
 use App\Role;
@@ -127,13 +127,12 @@ class CustomerController extends Controller
       $subject = "Redeem Lost Token";
       $body = "The token for your order is <b>" . $token . "</b>";
 
-
         try{
-          $response = Mail::send ( [], [], function (Message $message) use ($email, $body) {
-            $message->from ( 'support@wepayng.com', 'WePayng' );
-            $message->to($email)->subject ( 'Redeem Lost Token' );
-            $message->setBody($body);
-            } );
+          $response = Mail::send( [], [], function (Message $message) use ($email, $body) {
+              $message->from ( 'support@wepayng.com', 'WePayng' );
+              $message->to($email)->subject ( 'Redeem Lost Token' );
+              $message->setBody($body);
+          });
             return Redirect::back()
             ->with('success', 'Token has been resent');
           }catch(\Exception $e){

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Message;
 
 use App\Role;
 use App\User;
@@ -86,17 +88,32 @@ class GuestController extends Controller
             //dd($auth);
 
             if ($auth) {
-                $token = Hash::make("12345"); //hard coded token
-                $date_sent = Carbon::now();
-                $date_expire = $date_sent->addMinutes(5);
+                $digits = 4;
+                $number = rand(pow(10, $digits-1), pow(10, $digits)-1);
+                $token = Hash::make($number); //hard coded token
+                $today = Carbon::now();
+                $date_sent = $today->toDateTimeString();
+                $date_expire = $today->addMinutes(5);
                 $user = User::where('email', $email)->first();
                 $user->token = $token;
                 $user->token_sent = $date_sent;
                 $user->token_expire = $date_expire;
 
                 if($user->update()){
-                  //return Redirect::route('2Fa', array('user' => $user));
-                  return Redirect::route('2Fa')->with('user', $user->email);
+                  $body = $body = "Your login token is <b>" . $number . "</b>. Token expires: " . $date_expire;
+                  //$data = array('name' => "WePayng");
+                  //Send the token to the user
+                  try{
+                    $response = Mail::send([], [], function (Message $message) use ($email, $body) {
+                      $message->from ( 'info@bodcng.com', 'WePayng' );
+                      $message->to($email)->subject( 'Login Token' );
+                      $message->setBody($body, 'text/html');
+                    });
+                    return Redirect::route('2Fa')->with('user', $user->email);
+                  }catch(\Exception $e){
+                    return Redirect::back()
+                    ->with('fail', 'Error resending login token. Contact administrator');
+                  }
                 }
             } else {
                 return Redirect::route('login')->with('fail', 'Invalid username and password');
@@ -115,13 +132,14 @@ class GuestController extends Controller
         }else {
           // code...
           $email = Input::get('email');
-          $today = Carbon::now();
+          $today = Carbon::now()->toDateTimeString();
           $token = Input::get('token');
           $user = User::where('email', $email)->first();
 
           $auth = Hash::check($token, $user->token);
+          $token_not_expire = $today < $user->token_expire;
 
-          if ($auth) {
+          if ($auth && $token_not_expire) {
             $user->last_login_date = $today;
             if($user->update()){
               Auth::login($user);
@@ -130,7 +148,7 @@ class GuestController extends Controller
             }
           }else {
             // code...
-            return Redirect::route('2Fa')->with('fail', 'Invalid token')->with('user', Input::get('email'));
+            return Redirect::route('2Fa')->with('fail', 'Invalid token or token expired')->with('user', Input::get('email'));
           }
         }
     }
